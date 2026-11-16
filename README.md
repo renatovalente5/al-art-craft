@@ -19,7 +19,7 @@ as medidas ou a gravação; «Encomendar pelo WhatsApp» abre a conversa com o A
 ## Correr
 
 ```bash
-python3 scripts/imagens.py     # as versões web das imagens (Pillow), para .cache/imagens
+python3 scripts/imagens.py     # as versões web das imagens e as miniaturas do painel (Pillow), para .cache/imagens
 node scripts/build.mjs         # o site em _site/ (python3 -m http.server 8991 --directory _site)
 node scripts/testar.mjs        # os testes (o CI corre-os antes de publicar)
 node scripts/build.mjs --producao --url=https://<domínio>   # no domínio: pára se faltar um dado que a lei pede
@@ -34,7 +34,7 @@ node scripts/build.mjs --producao --url=https://<domínio>   # no domínio: pár
 | `content/produtos/*.json` | um ficheiro por produto (o nome do ficheiro é o endereço `/produto/<nome>/`) |
 | `content/trabalhos/*.json` | o portefólio: um ficheiro por trabalho (`/trabalhos/<nome>/`) |
 | `content/inicio.json` | a capa (1 a 3 vídeos), «Como trabalho» e o convite |
-| `content/paginas/*.md` | Sobre, perguntas frequentes e as páginas legais, com marcadores `{{…}}` |
+| `content/paginas/*.md` | Sobre (com as duas fotografias na cabeça: `foto`, `fotoPequena`), perguntas frequentes e as páginas legais, com marcadores `{{…}}` |
 | `content/fotos.json` | a descrição (alt) de cada fotografia e de onde veio |
 | `media/fotos/`, `media/videos/` | as fotografias (até 2048 px) e os vídeos sem som (os reels têm música) |
 | `media/marca/logo.png` | o logótipo do Alberto, só sem o fundo branco |

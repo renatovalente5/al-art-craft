@@ -9,6 +9,10 @@ Lê:
   media/marca/logo.png   o logótipo do Alberto, com o fundo branco tirado (sem redesenhar); dele saem os ícones e o
                          cartão de partilha da marca (o que o WhatsApp mostra quando se partilha o site)
 
+E as miniaturas do painel (o painel mostra a biblioteca inteira pelo NOME, a partir do site publicado):
+  assets/img/miniatura-<nome>.webp (320 px), assets/img/grande-<nome>.webp (1024 px) e
+  assets/img/miniatura-video-<nome>.webp (a capa de cada vídeo, 320 px). Ficam em .cache/imagens/painel/.
+
 Escreve em .cache/imagens/ (fica entre publicações; o nome de cada ficheiro leva um resumo do original, por isso
 só se refaz o que mudou) e o manifesto .cache/imagens/manifesto.json, que o scripts/build.mjs lê para escrever os
 <picture> e copiar para _site/assets/img/ só o que as páginas usam.
@@ -32,7 +36,8 @@ QUALIDADE = {'avif': 52, 'webp': 78}
 PARTILHA = (1200, 630)
 AREIA = (243, 236, 227)          # --areia-clara do site: o fundo dos cartões, onde pousam os recortes
 FUNDO = (251, 249, 246)          # --fundo do site: o fundo do cartão de partilha da marca
-VERSAO = f'v1-{LARGURAS}-{QUALIDADE}-{PARTILHA}'   # as fotografias não mudaram de tratamento: o mesmo resumo
+VERSAO = f'v1-{LARGURAS}-{QUALIDADE}-{PARTILHA}'
+PAINEL = {'miniatura': 320, 'grande': 1024}   # as larguras das miniaturas do painel (nunca se aumenta)   # as fotografias não mudaram de tratamento: o mesmo resumo
 
 
 def resumo(caminho, extra=''):
@@ -101,6 +106,31 @@ def versoes(nome, origem):
     return {'w': W, 'h': H, 'resumo': h, 'larguras': larguras, 'formatos': list(FORMATOS), 'jpg': jw, 'alfa': alfa}
 
 
+def painel(nome, origem, tipos):
+    """As miniaturas do painel de uma imagem: {nome publicado: caminho na cache}. WebP; um PNG guarda o alfa."""
+    out = {}
+    pasta = os.path.join(CACHE, 'painel')
+    os.makedirs(pasta, exist_ok=True)
+    for tipo in tipos:
+        largura = PAINEL['miniatura' if tipo.startswith('miniatura') else tipo]
+        h = resumo(origem, extra=f'painel-{largura}')
+        destino = os.path.join(pasta, f'{h}-{largura}.webp')
+        if not os.path.exists(destino):
+            im = Image.open(origem)
+            if im.format == 'JPEG':
+                im.draft('RGB', (largura, largura))   # descodifica já reduzida
+            im = ImageOps.exif_transpose(im)
+            alfa = im.mode in ('RGBA', 'LA') or (im.mode == 'P' and 'transparency' in im.info)
+            im = im.convert('RGBA' if alfa else 'RGB')
+            if im.width > largura:
+                im = im.resize((largura, max(1, round(im.height * largura / im.width))), Image.LANCZOS)
+            tmp = destino + '.tmp'
+            im.save(tmp, 'WEBP', quality=80, method=4)
+            os.replace(tmp, destino)
+        out[f'{tipo}-{nome}.webp'] = os.path.relpath(destino, CACHE)
+    return out
+
+
 def logotipo():
     """O logótipo em PNG e WebP a 1×, 2× e 3× das alturas em que aparece (sem mexer no desenho)."""
     origem = os.path.join(MARCA, 'logo.png')
@@ -161,18 +191,20 @@ def main():
         print(f'{len(fotos)} fotografias, todas com descrição.')
         return
     os.makedirs(CACHE, exist_ok=True)
-    manifesto = {'fotos': {}, 'videos': {}, 'logo': None}
+    manifesto = {'fotos': {}, 'videos': {}, 'logo': None, 'painel': {}}
     for i, (nome, f) in enumerate(sorted(fotos.items()), 1):
         manifesto['fotos'][nome] = versoes(nome, f)
+        manifesto['painel'].update(painel(nome, f, ('miniatura', 'grande')))
         if i % 25 == 0:
             print(f'  {i}/{len(fotos)}', flush=True)
     for f in sorted(glob.glob(os.path.join(VIDEOS, '*.jpg'))):
         nome = os.path.splitext(os.path.basename(f))[0]
         manifesto['videos'][nome] = versoes('video-' + nome, f)
+        manifesto['painel'].update(painel(nome, f, ('miniatura-video',)))
     manifesto['logo'] = logotipo()
     with open(os.path.join(CACHE, 'manifesto.json'), 'w') as f:
         json.dump(manifesto, f, ensure_ascii=False, indent=1)
-    print(f"{len(manifesto['fotos'])} fotografias, {len(manifesto['videos'])} capas de vídeo, logótipo.")
+    print(f"{len(manifesto['fotos'])} fotografias, {len(manifesto['videos'])} capas de vídeo, logótipo, {len(manifesto['painel'])} miniaturas do painel.")
 
 
 if __name__ == '__main__':

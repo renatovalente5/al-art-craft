@@ -92,7 +92,7 @@ ${trabalhos.length ? `<section class="secao" aria-labelledby="t-trabalhos">
       ...(site.email ? { email: site.email } : {}),
       address: { '@type': 'PostalAddress', addressLocality: site.localidade, postalCode: site.codigoPostal, addressCountry: 'PT' },
       founder: { '@type': 'Person', name: site.dono },
-      sameAs: [`https://www.instagram.com/${site.instagram}/`],
+      ...(site.instagram ? { sameAs: [`https://www.instagram.com/${site.instagram}/`] } : {}),
     },
   ] : [];
   return { caminho: '/', seccao: 'inicio', titulo: `${site.marca} — peças em madeira por medida, em ${site.localidade}`, descricao: site.descricao, corpo, jsonld, classe: 'pagina-inicio' };
@@ -270,8 +270,8 @@ export function sobre(ctx, pag) {
       <a class="botao botao--escuro" href="${whatsapp(ctx.site, 'Olá Alberto!')}" target="_blank" rel="noopener">${I.wa}<span>Falar com o Alberto</span></a>
     </div>
     <div class="sobre__fotos">
-      ${foto(ctx, 'processo-corte', { sizes: '(min-width: 1024px) 460px, 92vw', classe: 'sobre__foto', eager: true })}
-      ${foto(ctx, 'tabua-de-cumaru-1', { sizes: '(min-width: 1024px) 220px, 45vw', classe: 'sobre__foto sobre__foto--pequena' })}
+      ${foto(ctx, pag.meta.foto, { sizes: '(min-width: 1024px) 460px, 92vw', classe: 'sobre__foto', eager: true })}
+      ${foto(ctx, pag.meta.fotoPequena, { sizes: '(min-width: 1024px) 220px, 45vw', classe: 'sobre__foto sobre__foto--pequena' })}
     </div>
   </div>
 </div>`;
@@ -290,7 +290,7 @@ export function contactos(ctx) {
   <ul class="contactos">
     <li><a class="contacto contacto--wa" href="${whatsapp(site, 'Olá Alberto!')}" target="_blank" rel="noopener"><span class="contacto__icone">${I.wa}</span><span class="contacto__nome">WhatsApp</span><span class="contacto__valor">Enviar uma mensagem</span></a></li>
     <li><a class="contacto" href="tel:+351${site.telefone.replace(/\s/g, '')}"><span class="contacto__icone">${I.tel}</span><span class="contacto__nome">Telefone</span><span class="contacto__valor">${esc(site.telefone)} <span class="chamada">(Chamada para a rede móvel nacional)</span></span></a></li>
-    <li><a class="contacto" href="https://www.instagram.com/${esc(site.instagram)}/" target="_blank" rel="noopener"><span class="contacto__icone">${I.ig}</span><span class="contacto__nome">Instagram</span><span class="contacto__valor">@${esc(site.instagram)}</span></a></li>
+    ${site.instagram ? `<li><a class="contacto" href="https://www.instagram.com/${esc(site.instagram)}/" target="_blank" rel="noopener"><span class="contacto__icone">${I.ig}</span><span class="contacto__nome">Instagram</span><span class="contacto__valor">@${esc(site.instagram)}</span></a></li>` : ''}
     <li>${site.email ? `<a class="contacto" href="mailto:${esc(site.email)}"><span class="contacto__icone">${I.email}</span><span class="contacto__nome">Email</span><span class="contacto__valor">${esc(site.email)}</span></a>` : `<div class="contacto"><span class="contacto__icone">${I.email}</span><span class="contacto__nome">Email</span><span class="contacto__valor">${ctx.porConfirmar('o email')}</span></div>`}</li>
     <li><div class="contacto"><span class="contacto__icone">${I.local}</span><span class="contacto__nome">Oficina</span><span class="contacto__valor">${esc(site.localidade)}</span></div></li>
   </ul>

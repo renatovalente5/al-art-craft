@@ -27,6 +27,15 @@ const CACHE = path.join(RAIZ, '.cache', 'imagens');
 function parar(titulo, linhas) {
   console.error(`\n✗ ${titulo}`);
   for (const l of linhas) console.error(`  • ${l}`);
+  // no GitHub Actions, cada problema também como anotação: o painel lê-as e mostra-as ao Alberto («onde: o quê»)
+  if (process.env.GITHUB_ACTIONS === 'true') {
+    const dados = (t) => String(t).replace(/%/g, '%25').replace(/\r/g, '%0D').replace(/\n/g, '%0A');
+    const propriedade = (t) => dados(t).replace(/:/g, '%3A').replace(/,/g, '%2C');
+    for (const l of linhas) {
+      const m = /^(.{3,80}?)(?: › |: )(.+)$/s.exec(l);
+      console.log(m ? `::error title=${propriedade(m[1])}::${dados(m[2])}` : `::error title=${propriedade(titulo)}::${dados(l)}`);
+    }
+  }
   process.exit(1);
 }
 
@@ -58,6 +67,12 @@ for (const [s, d] of Object.entries(trabalhosBrutos)) juntar(`Trabalho «${d.tit
 juntar('Página inicial', R.regrasInicio(inicio, { videos: videosLista }));
 juntar('Destaques', R.regrasDestaques(produtosBrutos, trabalhosBrutos));
 juntar('Fotografias', R.regrasFotos(fotos));
+for (const q of R.regrasNomes(produtosBrutos, trabalhosBrutos)) {
+  const [colecao, slug, campo] = q.campo.split('.');
+  const d = (colecao === 'produtos' ? produtosBrutos : trabalhosBrutos)[slug];
+  problemas.push(`${colecao === 'produtos' ? `Produto «${d.nome}»` : `Trabalho «${d.titulo}»`} › ${campo}: ${q.msg}`);
+}
+for (const [nome, pag] of Object.entries(paginas)) juntar(`Página «${pag.meta.titulo || nome}»`, R.regrasPagina(nome, pag.meta, { fotos }));
 for (const s of Object.keys(produtosBrutos)) if (R.CATEGORIAS_FIXAS.includes(s)) problemas.push(`Produto «${s}»: o endereço não pode ser o de uma categoria.`);
 for (const nome of Object.keys(fotos)) if (!manifesto.fotos[nome]) problemas.push(`Fotografia «${nome}»: falta a versão web (correr scripts/imagens.py).`);
 if (problemas.length) parar('A publicação parou: há dados por corrigir.', problemas);
@@ -133,6 +148,7 @@ ctx.recorte = (nome) => !!manifesto.fotos[nome]?.alfa;
 ctx.icone = (lado) => { ctx.usadas.add(`icone-${lado}`); return asset(ctx, `img/icone-${manifesto.logo.resumo}-${lado}.png`); };
 ctx.logoUrl = URL_SITE ? `${URL_SITE}/assets/img/logo-${manifesto.logo.resumo}-${manifesto.logo.alturas.at(-1)}.png` : null;
 // o cartão de partilha do início e das páginas sem fotografia própria: o logótipo da AL Art Craft (scripts/imagens.py)
+if (!manifesto.painel || !Object.keys(manifesto.painel).length) parar('A publicação parou: faltam as miniaturas do painel.', ['correr python3 scripts/imagens.py']);
 if (!manifesto.logo?.partilha) parar('A publicação parou: falta o cartão de partilha da marca.', ['correr python3 scripts/imagens.py']);
 ctx.usadas.add('al-art-craft');
 ctx.imagemPartilha = asset(ctx, `img/${manifesto.logo.partilha}`);
@@ -189,10 +205,12 @@ fazer(P.naoEncontrada(ctx));
 const naCache = fs.readdirSync(CACHE);
 let nImg = 0;
 for (const f of naCache) {
-  if (f === 'manifesto.json' || f.endsWith('.tmp')) continue;
+  if (f === 'manifesto.json' || f === 'painel' || f.endsWith('.tmp')) continue;
   const base = f.replace(/-[0-9a-f]{10}-.*$/, '');
   if (ctx.usadas.has(base)) { copiar(path.join(CACHE, f), `assets/img/${f}`); nImg++; }
 }
+// as miniaturas do painel: a biblioteca inteira, pelo nome (sem resumo: o painel pede-as assim)
+for (const [publicada, naCacheDoPainel] of Object.entries(manifesto.painel)) { copiar(path.join(CACHE, naCacheDoPainel), `assets/img/${publicada}`); nImg++; }
 for (const [v, nome] of Object.entries(videos)) if (ctx.usadas.has(`video-${v}`)) copiar(path.join(RAIZ, 'media/videos', `${v}.mp4`), `assets/video/${nome}`);
 
 // ── Manifesto da app, robots e sitemap ──────────────────────────────────────────────────────────────

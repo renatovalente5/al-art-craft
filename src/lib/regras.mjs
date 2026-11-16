@@ -5,7 +5,7 @@
 // publicação com qualquer problema; o painel mostra-os ao lado do campo e recusa gravar os NOVOS.
 
 export const LIMITES = {
-  marca: 40, frase: 90, descricaoSite: 170, mensagemWhatsapp: 200, textoEncomendas: 400,
+  marca: 40, descricaoSite: 170, descricaoMin: 20, tituloPagina: 80, descricaoPagina: 300, mensagemWhatsapp: 200, textoEncomendas: 400,
   nomeCategoria: 40, fraseCategoria: 120,
   nomeProduto: 70, resumo: 140, descricao: 420, rotulo: 30, valor: 90, caracteristicas: 8, fotosProduto: 12,
   opcoes: 3, valoresOpcao: 8, nomeOpcao: 30, nomeValor: 40,
@@ -25,7 +25,7 @@ const vazio = (v) => v == null || (texto(v) && v.trim() === '');
 // caracteres que não se veem e partem pesquisas e comparações (o trim() não os tira)
 const INVISIVEIS = /[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F\u00AD\u200B-\u200F\u2028\u2029\u2060\uFEFF]/;
 
-function campoTexto(problemas, campo, v, { max, obrigatorio = true, linhas = false } = {}) {
+function campoTexto(problemas, campo, v, { max, min = 0, obrigatorio = true, linhas = false } = {}) {
   if (vazio(v)) { if (obrigatorio) problemas.push({ campo, msg: 'Falta preencher.' }); return; }
   if (!texto(v)) { problemas.push({ campo, msg: 'Tem de ser texto.' }); return; }
   if (v !== v.trim()) problemas.push({ campo, msg: 'Tem espaços a mais no início ou no fim.' });
@@ -33,6 +33,7 @@ function campoTexto(problemas, campo, v, { max, obrigatorio = true, linhas = fal
   if (!linhas && /\n/.test(v)) problemas.push({ campo, msg: 'Tem de ficar numa linha só.' });
   if (/<\/?[a-z][^>]*>/i.test(v)) problemas.push({ campo, msg: 'Não pode ter código (< >).' });
   if (max && [...v].length > max) problemas.push({ campo, msg: `Tem ${[...v].length} caracteres; o máximo é ${max}.` });
+  if (min && [...v.trim()].length < min) problemas.push({ campo, msg: `Escreva pelo menos ${min} caracteres (o Google mostra esta frase).` });
 }
 
 export function nifValido(nif) {
@@ -50,8 +51,7 @@ export function regrasSite(s) {
   if (!s || typeof s !== 'object') return [{ campo: 'site', msg: 'Os dados da loja não se leram.' }];
   campoTexto(p, 'marca', s.marca, { max: LIMITES.marca });
   campoTexto(p, 'dono', s.dono, { max: 60 });
-  campoTexto(p, 'frase', s.frase, { max: LIMITES.frase });
-  campoTexto(p, 'descricao', s.descricao, { max: LIMITES.descricaoSite });
+  campoTexto(p, 'descricao', s.descricao, { max: LIMITES.descricaoSite, min: LIMITES.descricaoMin });
   if (!/^351[29][0-9]{8}$/.test(String(s.whatsapp ?? ''))) p.push({ campo: 'whatsapp', msg: 'O número do WhatsApp tem de ser português, com 9 algarismos (ex.: 917 443 823).' });
   if (!/^[29][0-9]{2} [0-9]{3} [0-9]{3}$/.test(String(s.telefone ?? ''))) p.push({ campo: 'telefone', msg: 'Escreva o telefone com 9 algarismos, em grupos de três (ex.: 917 443 823).' });
   if (!vazio(s.email) && !/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(s.email)) p.push({ campo: 'email', msg: 'O email não parece certo.' });
@@ -201,6 +201,38 @@ export function regrasDestaques(produtos, trabalhos) {
   const nt = Object.values(trabalhos ?? {}).filter((x) => x.destaque && x.publicado).length;
   if (np > LIMITES.destaquesProdutos) p.push({ campo: 'destaque', msg: `Há ${np} produtos em destaque; a página inicial mostra ${LIMITES.destaquesProdutos}.` });
   if (nt > LIMITES.destaquesTrabalhos) p.push({ campo: 'destaque', msg: `Há ${nt} trabalhos em destaque; a página inicial mostra ${LIMITES.destaquesTrabalhos}.` });
+  return p;
+}
+
+/** Nomes repetidos: dois produtos publicados com o mesmo nome, ou dois trabalhos publicados com o mesmo título e o
+ *  mesmo cliente, dariam duas páginas com o mesmo título (o Google também as confunde). Sem acentos nem maiúsculas. */
+export function regrasNomes(produtos, trabalhos) {
+  const p = [];
+  const normal = (t) => String(t ?? '').normalize('NFD').replace(/\p{M}/gu, '').trim().toLowerCase().replace(/\s+/g, ' ');
+  const repetidos = (lista, chave) => {
+    const por = new Map();
+    for (const [s, d] of lista) { const k = chave(d); if (k) por.set(k, [...(por.get(k) ?? []), s]); }
+    return [...por.values()].filter((ss) => ss.length > 1).flat();
+  };
+  const pub = (o) => Object.entries(o ?? {}).filter(([, d]) => d?.publicado === true);
+  for (const s of repetidos(pub(produtos), (d) => normal(d.nome))) p.push({ campo: `produtos.${s}.nome`, msg: 'Há outro produto publicado com este nome.' });
+  for (const s of repetidos(pub(trabalhos), (d) => (normal(d.titulo) ? `${normal(d.titulo)}|${normal(d.cliente)}` : ''))) p.push({ campo: `trabalhos.${s}.titulo`, msg: 'Há outro trabalho publicado com este título e este cliente.' });
+  return p;
+}
+
+/** A cabeça de uma página de texto (content/paginas/<nome>.md): o título, a frase do Google (20 caracteres pelo menos)
+ *  e, na «Sobre», as duas fotografias (da biblioteca). */
+export function regrasPagina(nome, meta, { fotos = null } = {}) {
+  const p = [];
+  const m = meta ?? {};
+  campoTexto(p, 'titulo', m.titulo, { max: LIMITES.tituloPagina });
+  campoTexto(p, 'descricao', m.descricao, { max: LIMITES.descricaoPagina, min: LIMITES.descricaoMin });
+  if (nome === 'sobre') {
+    for (const k of ['foto', 'fotoPequena']) {
+      if (vazio(m[k])) p.push({ campo: k, msg: 'Escolha a fotografia.' });
+      else if (!NOME_FOTO.test(m[k]) || (fotos && !fotos[m[k]])) p.push({ campo: k, msg: `A fotografia «${m[k]}» não está na biblioteca.` });
+    }
+  }
   return p;
 }
 

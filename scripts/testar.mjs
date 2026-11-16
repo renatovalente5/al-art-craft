@@ -14,6 +14,7 @@ const teste = (nome, fn) => { try { fn(); ok++; } catch (e) { falhas.push(`${nom
 const igual = (a, b, msg) => { if (a !== b) throw new Error(`${msg ?? ''} esperava ${JSON.stringify(b)}, veio ${JSON.stringify(a)}`); };
 const sim = (v, msg) => { if (!v) throw new Error(msg); };
 const ler = (rel) => JSON.parse(fs.readFileSync(path.join(RAIZ, rel), 'utf8'));
+const lerCabeca = (rel) => Object.fromEntries(fs.readFileSync(path.join(RAIZ, rel), 'utf8').split(/^---$/m)[0].split('\n').map((l) => l.match(/^([a-zA-Z]+):\s*(.*)$/)).filter(Boolean).map((m) => [m[1], m[2].trim()]));
 const pasta = (rel) => Object.fromEntries(fs.readdirSync(path.join(RAIZ, rel)).filter((f) => f.endsWith('.json')).map((f) => [f.slice(0, -5), ler(`${rel}/${f}`)]));
 
 // ── O conteúdo ─────────────────────────────────────────────────────────────────────────────────────
@@ -42,7 +43,24 @@ teste('regras: escolhas que sobem o preço obrigam a «desde»', () => {
   const p = { ...Object.values(produtos)[0], desde: false, opcoes: [{ nome: 'Copos', valores: [{ nome: '3', mais: 0 }, { nome: '4', mais: 6 }] }] };
   sim(R.regrasProduto('x', p).some((e) => e.campo === 'desde'), 'não recusou');
 });
-teste('regras: caracteres invisíveis', () => sim(R.regrasSite({ ...site, frase: `Peças${String.fromCharCode(0x200b)} em madeira` }).some((e) => e.campo === 'frase'), 'não recusou'));
+teste('regras: caracteres invisíveis', () => sim(R.regrasSite({ ...site, dono: `Alberto${String.fromCharCode(0x200b)} Lopes` }).some((e) => e.campo === 'dono'), 'não recusou'));
+teste('regras: páginas de texto', () => { for (const f of fs.readdirSync(path.join(RAIZ, 'content/paginas')).filter((x) => x.endsWith('.md'))) igual(JSON.stringify(R.regrasPagina(f.slice(0, -3), lerCabeca(`content/paginas/${f}`), { fotos })), '[]', f); });
+teste('regras: nomes repetidos', () => igual(JSON.stringify(R.regrasNomes(produtos, trabalhos)), '[]'));
+teste('regras: recusam dois produtos publicados com o mesmo nome (sem ligar a acentos)', () => {
+  const r = R.regrasNomes({ a: { publicado: true, nome: 'Tábua rústica' }, b: { publicado: true, nome: 'tabua  RUSTICA' }, c: { publicado: false, nome: 'Tábua rústica' } }, {});
+  igual(r.map((x) => x.campo).join(), 'produtos.a.nome,produtos.b.nome');
+});
+teste('regras: recusam dois trabalhos com o mesmo título e o mesmo cliente', () => igual(R.regrasNomes({}, { a: { publicado: true, titulo: 'Placas', cliente: 'X' }, b: { publicado: true, titulo: 'placas', cliente: 'x' }, c: { publicado: true, titulo: 'Placas', cliente: 'Y' } }).length, 2));
+teste('regras: a descrição do Google com 20 caracteres pelo menos', () => {
+  sim(R.regrasSite({ ...site, descricao: 'Curta demais.' }).some((e) => e.campo === 'descricao'), 'site');
+  sim(R.regrasPagina('perguntas-frequentes', { titulo: 'Perguntas', descricao: 'Curta.' }).some((e) => e.campo === 'descricao'), 'página');
+});
+teste('regras: a «Sobre» tem as duas fotografias da biblioteca', () => {
+  const r = R.regrasPagina('sobre', { titulo: 'Sobre', descricao: 'Uma frase com mais de vinte caracteres.', foto: 'nao-existe' }, { fotos });
+  sim(r.some((e) => e.campo === 'foto') && r.some((e) => e.campo === 'fotoPequena'), JSON.stringify(r));
+});
+teste('regras: o Instagram pode ficar vazio', () => igual(R.regrasSite({ ...site, instagram: null }).length, 0));
+teste('regras: a «frase» saiu dos dados da loja', () => sim(!('frase' in site) && !('frase' in R.LIMITES), 'ainda lá está'));
 teste('regras: NIF', () => { sim(R.nifValido('248679880'), 'válido recusado'); sim(!R.nifValido('248679881'), 'inválido aceite'); });
 teste('euros: pt-PT', () => { igual(R.euros(4.5), '4,50\u00A0€'); igual(R.euros(1450), '1450\u00A0€'); igual(R.euros(12000), '12\u00A0000\u00A0€'); });
 teste('mensagem do WhatsApp', () => igual(R.mensagemEncomenda({ abertura: 'Olá!', nome: 'Tábua', quantidade: 2, preco: 45, notas: ' logo ', endereco: 'https://x/' }), 'Olá!\n• 2 × Tábua — 45\u00A0€ cada\nMedidas ou gravação: logo\nhttps://x/'));
@@ -55,7 +73,9 @@ const BASE = (inicioHtml.match(/<link rel="stylesheet" href="([^"]*)\/assets\//)
 const todas = [];
 (function andar(dir) { for (const f of fs.readdirSync(dir, { withFileTypes: true })) { const p = path.join(dir, f.name); if (f.isDirectory()) { if (f.name !== 'assets') andar(p); } else if (f.name.endsWith('.html')) todas.push(path.relative(SITE, p)); } })(SITE);
 const publicados = Object.entries(produtos).filter(([, d]) => d.publicado);
-const caminhos = ['index.html', 'produtos/index.html', ...categorias.map((c) => `produtos/${c.slug}/index.html`), ...publicados.map(([s]) => `produto/${s}/index.html`), 'trabalhos/index.html', ...Object.entries(trabalhos).filter(([, d]) => d.publicado).map(([s]) => `trabalhos/${s}/index.html`), 'sobre/index.html', 'contactos/index.html', 'perguntas-frequentes/index.html', 'termos-e-condicoes/index.html', 'politica-de-privacidade/index.html', 'resolucao-de-litigios/index.html', 'garantia/index.html', 'desistir/index.html', '404.html'];
+// uma categoria sem produtos publicados não tem página (o gerador esconde-a)
+const comProdutos = categorias.filter((c) => publicados.some(([, d]) => d.categoria === c.slug));
+const caminhos = ['index.html', 'produtos/index.html', ...comProdutos.map((c) => `produtos/${c.slug}/index.html`), ...publicados.map(([s]) => `produto/${s}/index.html`), 'trabalhos/index.html', ...Object.entries(trabalhos).filter(([, d]) => d.publicado).map(([s]) => `trabalhos/${s}/index.html`), 'sobre/index.html', 'contactos/index.html', 'perguntas-frequentes/index.html', 'termos-e-condicoes/index.html', 'politica-de-privacidade/index.html', 'resolucao-de-litigios/index.html', 'garantia/index.html', 'desistir/index.html', '404.html'];
 for (const c of caminhos) teste(`existe ${c}`, () => sim(fs.existsSync(path.join(SITE, c)), 'não existe'));
 teste('não há páginas a mais', () => igual(todas.length, caminhos.length));
 
@@ -126,7 +146,20 @@ for (const rel of ['index.html', 'produtos/index.html', 'trabalhos/index.html', 
 }
 for (const [s, d] of publicados) teste(`produto ${s}: partilha com a fotografia dele`, () => sim(ogDe(html(`produto/${s}/index.html`)).includes(`/assets/img/${d.fotos[0]}-`), 'outra imagem'));
 for (const [s, d] of Object.entries(trabalhos).filter(([, t]) => t.publicado)) teste(`trabalho ${s}: partilha com a fotografia dele`, () => sim(ogDe(html(`trabalhos/${s}/index.html`)).includes(`/assets/img/${d.fotos[0]}-`), 'outra imagem'));
-for (const c of categorias) teste(`categoria ${c.slug}: partilha com a fotografia dela`, () => sim(ogDe(html(`produtos/${c.slug}/index.html`)).includes(`/assets/img/${c.foto}-`), 'outra imagem'));
+for (const c of comProdutos) teste(`categoria ${c.slug}: partilha com a fotografia dela`, () => sim(ogDe(html(`produtos/${c.slug}/index.html`)).includes(`/assets/img/${c.foto}-`), 'outra imagem'));
+
+// as miniaturas do painel: cada fotografia da biblioteca e a capa de cada vídeo, pelo nome, em WebP, sem aumentar
+teste('miniaturas do painel: todas as fotografias e capas de vídeo', () => {
+  const pasta = path.join(SITE, 'assets/img');
+  for (const n of Object.keys(fotos)) for (const t of ['miniatura', 'grande']) sim(fs.existsSync(path.join(pasta, `${t}-${n}.webp`)), `falta ${t}-${n}.webp`);
+  for (const v of fs.readdirSync(path.join(RAIZ, 'media/videos')).filter((f) => f.endsWith('.jpg'))) sim(fs.existsSync(path.join(pasta, `miniatura-video-${v.slice(0, -4)}.webp`)), `falta miniatura-video-${v}`);
+});
+teste('miniaturas do painel: 320 e 1024 px de largura, no máximo', () => {
+  const largura = (f) => { const b = fs.readFileSync(f); const tipo = b.toString('ascii', 12, 16); if (tipo === 'VP8X') return 1 + b.readUIntLE(24, 3); if (tipo === 'VP8 ') return b.readUInt16LE(26) & 0x3fff; if (tipo === 'VP8L') return 1 + ((b.readUInt32LE(21)) & 0x3fff); throw new Error(`WebP ${tipo}`); };
+  const n = Object.keys(fotos)[0];
+  sim(largura(path.join(SITE, 'assets/img', `miniatura-${n}.webp`)) <= 320, 'miniatura');
+  sim(largura(path.join(SITE, 'assets/img', `grande-${n}.webp`)) <= 1024, 'grande');
+});
 
 // a ficha: o preço do cartão = o da ficha = o do JSON-LD = o da mensagem; a escolha mais barata vem marcada
 for (const [s, d] of publicados) {

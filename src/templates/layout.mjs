@@ -73,7 +73,7 @@ ${jsonld}
     </ul>
     <div class="menu__pe">
       <a class="botao botao--escuro botao--largo" href="${whatsapp(site, 'Olá Alberto!')}" target="_blank" rel="noopener">${I.wa}<span>Falar no WhatsApp</span></a>
-      <a class="menu__ig" href="https://www.instagram.com/${esc(site.instagram)}/" target="_blank" rel="noopener">${I.ig}<span>@${esc(site.instagram)}</span></a>
+      ${site.instagram ? `<a class="menu__ig" href="https://www.instagram.com/${esc(site.instagram)}/" target="_blank" rel="noopener">${I.ig}<span>@${esc(site.instagram)}</span></a>` : ''}
     </div>
   </div>
 </nav>
@@ -84,7 +84,7 @@ ${p.corpo}
   <a class="rodape__logo" href="${href(ctx, '/')}" aria-label="AL Art Craft — início">${logo(ctx, 72, 'rodape__marca')}</a>
   <nav class="rodape__nav" aria-label="Rodapé">${NAV.map(([, t, c]) => `<a href="${href(ctx, c)}">${t}</a>`).join('')}<a href="${href(ctx, '/perguntas-frequentes/')}">Perguntas</a></nav>
   <div class="rodape__redes">
-    <a class="redondo" href="https://www.instagram.com/${esc(site.instagram)}/" target="_blank" rel="noopener" aria-label="Instagram">${I.ig}</a>
+    ${site.instagram ? `<a class="redondo" href="https://www.instagram.com/${esc(site.instagram)}/" target="_blank" rel="noopener" aria-label="Instagram">${I.ig}</a>` : ''}
     <a class="redondo" href="${whatsapp(site, 'Olá Alberto!')}" target="_blank" rel="noopener" aria-label="WhatsApp">${I.wa}</a>
   </div>
   <div class="rodape__fim">
