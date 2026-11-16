@@ -62,8 +62,27 @@ teste('não há páginas a mais', () => igual(todas.length, caminhos.length));
 const titulos = new Map();
 const LEGAIS = ['termos-e-condicoes', 'politica-de-privacidade', 'resolucao-de-litigios', 'garantia', 'desistir'];
 const producao = !/<meta name="robots" content="noindex/.test(inicioHtml);
+// a largura e a altura de um JPEG (o primeiro marcador SOF)
+const medidaJpeg = (f) => {
+  const b = fs.readFileSync(f);
+  for (let i = 2; i + 9 < b.length;) {
+    if (b[i] !== 0xff) throw new Error('não é JPEG');
+    const m = b[i + 1];
+    if (m >= 0xc0 && m <= 0xcf && ![0xc4, 0xc8, 0xcc].includes(m)) return `${b.readUInt16BE(i + 7)}x${b.readUInt16BE(i + 5)}`;
+    i += 2 + b.readUInt16BE(i + 2);
+  }
+  throw new Error('sem medidas');
+};
+const ogDe = (h) => (h.match(/<meta property="og:image" content="([^"]+)">/) ?? [])[1] ?? '';
 for (const rel of todas) {
   const h = html(rel);
+  teste(`${rel}: cartão de partilha existe, 1200×630`, () => {
+    const og = ogDe(h);
+    sim(og.includes('/assets/'), 'sem og:image');
+    const f = path.join(SITE, 'assets', og.split('/assets/')[1]);
+    sim(fs.existsSync(f), `falta ${og}`);
+    igual(medidaJpeg(f), '1200x630');
+  });
   teste(`${rel}: um só h1`, () => igual((h.match(/<h1[\s>]/g) ?? []).length, 1));
   teste(`${rel}: título e descrição`, () => { sim(/<title>[^<]{10,}<\/title>/.test(h), 'título'); sim(/<meta name="description" content="[^"]{20,}">/.test(h), 'descrição'); });
   const t = h.match(/<title>([^<]*)<\/title>/)[1];
@@ -98,6 +117,16 @@ for (const rel of todas) {
     }
   });
 }
+
+// ao partilhar: o início e as páginas gerais mostram o logótipo da AL Art Craft (não uma peça com a marca de um
+// cliente); a ficha, o trabalho e a categoria mostram a fotografia deles
+const CARTAO_MARCA = /\/assets\/img\/al-art-craft-[0-9a-f]{10}-partilha\.jpg$/;
+for (const rel of ['index.html', 'produtos/index.html', 'trabalhos/index.html', 'sobre/index.html', 'contactos/index.html', 'perguntas-frequentes/index.html', '404.html', ...LEGAIS.map((l) => `${l}/index.html`)]) {
+  teste(`${rel}: partilha com o logótipo da marca`, () => sim(CARTAO_MARCA.test(ogDe(html(rel))), ogDe(html(rel))));
+}
+for (const [s, d] of publicados) teste(`produto ${s}: partilha com a fotografia dele`, () => sim(ogDe(html(`produto/${s}/index.html`)).includes(`/assets/img/${d.fotos[0]}-`), 'outra imagem'));
+for (const [s, d] of Object.entries(trabalhos).filter(([, t]) => t.publicado)) teste(`trabalho ${s}: partilha com a fotografia dele`, () => sim(ogDe(html(`trabalhos/${s}/index.html`)).includes(`/assets/img/${d.fotos[0]}-`), 'outra imagem'));
+for (const c of categorias) teste(`categoria ${c.slug}: partilha com a fotografia dela`, () => sim(ogDe(html(`produtos/${c.slug}/index.html`)).includes(`/assets/img/${c.foto}-`), 'outra imagem'));
 
 // a ficha: o preço do cartão = o da ficha = o do JSON-LD = o da mensagem; a escolha mais barata vem marcada
 for (const [s, d] of publicados) {

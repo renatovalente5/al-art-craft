@@ -132,7 +132,10 @@ const ctx = {
 ctx.recorte = (nome) => !!manifesto.fotos[nome]?.alfa;
 ctx.icone = (lado) => { ctx.usadas.add(`icone-${lado}`); return asset(ctx, `img/icone-${manifesto.logo.resumo}-${lado}.png`); };
 ctx.logoUrl = URL_SITE ? `${URL_SITE}/assets/img/logo-${manifesto.logo.resumo}-${manifesto.logo.alturas.at(-1)}.png` : null;
-ctx.imagemPartilha = fotoUrl(ctx, 'tabua-madeira-africana-1', { partilha: true });
+// o cartão de partilha do início e das páginas sem fotografia própria: o logótipo da AL Art Craft (scripts/imagens.py)
+if (!manifesto.logo?.partilha) parar('A publicação parou: falta o cartão de partilha da marca.', ['correr python3 scripts/imagens.py']);
+ctx.usadas.add('al-art-craft');
+ctx.imagemPartilha = asset(ctx, `img/${manifesto.logo.partilha}`);
 const e = site.empresa ?? {};
 const temIdent = !vazio(e.nome) && !vazio(e.nif) && !vazio(e.morada);
 ctx.identificacaoCurta = temIdent ? `${esc(e.nome)} · NIF ${esc(e.nif)} · ${esc(e.morada)}` : ctx.porConfirmar('o nome ou a firma, o NIF e a morada de quem vende');

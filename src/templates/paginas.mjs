@@ -121,7 +121,7 @@ export function produtos(ctx, categoria = null) {
     caminho, seccao: 'produtos', corpo, classe: 'pagina-loja',
     titulo: categoria ? tituloCategoria(categoria, ctx.site) : `Produtos em madeira por medida | ${ctx.site.marca}`,
     descricao: categoria ? descricaoCategoria(categoria, ctx.site) : `Tábuas de servir, ferro fundido, pratos, porta-menus, caixas, placas e bancadas de catering, por medida e com o seu logótipo. Feitas em ${ctx.site.localidade}.`,
-    imagem: fotoUrl(ctx, categoria ? categoria.foto : ctx.categorias[0].foto, { partilha: true }),
+    imagem: categoria ? fotoUrl(ctx, categoria.foto, { partilha: true }) : ctx.imagemPartilha,
     jsonld: [jsonMigalhas(ctx, itens), lista_ld],
   };
 }
@@ -217,7 +217,6 @@ export function trabalhos(ctx) {
     caminho: '/trabalhos/', seccao: 'trabalhos', corpo, classe: 'pagina-trabalhos',
     titulo: `Trabalhos: peças em madeira para restaurantes e quintas | ${ctx.site.marca}`,
     descricao: `O portefólio da ${ctx.site.marca}: placas gravadas, tábuas, porta-menus e bancadas de catering feitas por medida para ${ctx.trabalhos.slice(0, 3).map((t) => t.cliente).join(', ')} e outros.`,
-    imagem: fotoUrl(ctx, ctx.trabalhos[0].fotos[0], { partilha: true }),
     jsonld: [jsonMigalhas(ctx, [['Trabalhos', '/trabalhos/']])],
   };
 }

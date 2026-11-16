@@ -6,7 +6,8 @@ Lê:
   media/fotos/*.png      os recortes (a peça sem o fundo, com transparência): AVIF e WebP guardam o alfa; o JPEG
                          e o cartão de partilha pousam-na no fundo de areia do site
   media/videos/*.jpg     a imagem de capa de cada vídeo
-  media/marca/logo.png   o logótipo do Alberto, com o fundo branco tirado (sem redesenhar)
+  media/marca/logo.png   o logótipo do Alberto, com o fundo branco tirado (sem redesenhar); dele saem os ícones e o
+                         cartão de partilha da marca (o que o WhatsApp mostra quando se partilha o site)
 
 Escreve em .cache/imagens/ (fica entre publicações; o nome de cada ficheiro leva um resumo do original, por isso
 só se refaz o que mudou) e o manifesto .cache/imagens/manifesto.json, que o scripts/build.mjs lê para escrever os
@@ -30,6 +31,7 @@ FORMATOS = ('avif', 'webp') if features.check('avif') else ('webp',)
 QUALIDADE = {'avif': 52, 'webp': 78}
 PARTILHA = (1200, 630)
 AREIA = (243, 236, 227)          # --areia-clara do site: o fundo dos cartões, onde pousam os recortes
+FUNDO = (251, 249, 246)          # --fundo do site: o fundo do cartão de partilha da marca
 VERSAO = f'v1-{LARGURAS}-{QUALIDADE}-{PARTILHA}'   # as fotografias não mudaram de tratamento: o mesmo resumo
 
 
@@ -122,6 +124,20 @@ def logotipo():
         q.alpha_composite(r, ((lado - r.width) // 2, (lado - r.height) // 2))
         guardar(q.convert('RGB'), os.path.join(CACHE, f'icone-{h}-{lado}.png'), 'png')
     out['icones'] = [32, 180, 192, 512]
+    # o cartão de partilha da marca (og:image do início e das páginas sem fotografia própria): o logótipo inteiro, ao
+    # centro, no fundo do site, ao tamanho dele (nunca aumentado: ficava desfocado). JPEG sem subamostragem da cor,
+    # para o traço fino do artesão e o areia das letras não borrarem.
+    hc = resumo(origem, extra=f'cartao-{FUNDO}-{PARTILHA}')
+    out['partilha'] = f'al-art-craft-{hc}-partilha.jpg'
+    destino = os.path.join(CACHE, out['partilha'])
+    if not os.path.exists(destino):
+        desenho = im.crop(im.getchannel('A').getbbox())
+        desenho.thumbnail((round(PARTILHA[0] * 0.8), round(PARTILHA[1] * 0.7)), Image.LANCZOS)
+        cartao = Image.new('RGBA', PARTILHA, FUNDO + (255,))
+        cartao.alpha_composite(desenho, ((PARTILHA[0] - desenho.width) // 2, (PARTILHA[1] - desenho.height) // 2))
+        tmp = destino + '.tmp'
+        cartao.convert('RGB').save(tmp, 'JPEG', quality=92, subsampling=0, optimize=True, progressive=True)
+        os.replace(tmp, destino)
     return out
 
 
