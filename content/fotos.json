@@ -163,10 +163,6 @@
     "alt": "Lembrança porta-velas",
     "origem": "C_pleTSMmmP_02"
   },
-  "lembranca-porta-velas-2": {
-    "alt": "Lembrança porta-velas",
-    "origem": "C_pleTSMmmP_01"
-  },
   "letras-de-madeira-1": {
     "alt": "Letras de madeira maciça",
     "origem": "DZUb189AAvw_03"
@@ -491,21 +487,17 @@
     "alt": "Tábua com pegas metálicas",
     "origem": "DI8VqfqsgZd_08"
   },
-  "tabua-com-resina-epoxi-1": {
-    "alt": "Tábua com canal em resina epóxi",
-    "origem": "DEDpJO9A1wr_02"
-  },
   "tabua-com-resina-epoxi-2": {
     "alt": "Tábua com canal em resina epóxi",
     "origem": "DEDpJO9A1wr_04"
   },
-  "tabua-com-resina-epoxi-3": {
-    "alt": "Tábua com canal em resina epóxi",
-    "origem": "DEDpJO9A1wr_01"
-  },
   "tabua-com-resina-epoxi-4": {
     "alt": "Tábua com canal em resina epóxi",
     "origem": "DEDpJO9A1wr_05"
+  },
+  "tabua-com-resina-epoxi-5": {
+    "alt": "Tábua com canal em resina epóxi",
+    "origem": "DEDpJO9A1wr_03"
   },
   "tabua-de-carvalho-1": {
     "alt": "Tábua de carvalho maciço",
@@ -614,10 +606,6 @@
   "tabua-ferro-fundido-retangular-5": {
     "alt": "Tábua medieval com chapa retangular",
     "origem": "Dacih3QALg5_15"
-  },
-  "tabua-formato-cutelo-1": {
-    "alt": "Tábua em formato de cutelo",
-    "origem": "DHIroENNi5K_01"
   },
   "tabua-formato-cutelo-2": {
     "alt": "Tábua em formato de cutelo",

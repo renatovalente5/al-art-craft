@@ -160,7 +160,7 @@ export function produto(ctx, p) {
           </div>
         </div>
         <label class="encomenda__rotulo" for="notas-${p.slug}">Medidas ou gravação <span class="opcional">(opcional)</span></label>
-        <textarea id="notas-${p.slug}" name="notas" rows="2" maxlength="300" placeholder="Ex.: logótipo do restaurante, 40 × 30 cm"></textarea>
+        <textarea id="notas-${p.slug}" name="notas" rows="2" maxlength="300" placeholder="Ex.: o logótipo, 40 × 30 cm"></textarea>
         <p class="encomenda__total" data-total hidden></p>
         <a class="botao botao--wa-cheio botao--largo" data-enviar href="${whatsapp(site, mensagemBase)}" target="_blank" rel="noopener">${I.wa}<span>Encomendar pelo WhatsApp</span></a>
         <ul class="encomenda__notas">
@@ -280,7 +280,7 @@ export function contactos(ctx) {
     <li><a class="contacto" href="tel:+351${site.telefone.replace(/\s/g, '')}"><span class="contacto__icone">${I.tel}</span><span class="contacto__nome">Telefone</span><span class="contacto__valor">${esc(site.telefone)} <span class="chamada">(Chamada para a rede móvel nacional)</span></span></a></li>
     <li><a class="contacto" href="https://www.instagram.com/${esc(site.instagram)}/" target="_blank" rel="noopener"><span class="contacto__icone">${I.ig}</span><span class="contacto__nome">Instagram</span><span class="contacto__valor">@${esc(site.instagram)}</span></a></li>
     <li>${site.email ? `<a class="contacto" href="mailto:${esc(site.email)}"><span class="contacto__icone">${I.email}</span><span class="contacto__nome">Email</span><span class="contacto__valor">${esc(site.email)}</span></a>` : `<div class="contacto"><span class="contacto__icone">${I.email}</span><span class="contacto__nome">Email</span><span class="contacto__valor">${ctx.porConfirmar('o email')}</span></div>`}</li>
-    <li><div class="contacto"><span class="contacto__icone">${I.local}</span><span class="contacto__nome">Oficina</span><span class="contacto__valor">${esc(site.localidade)} · entregas e visitas por marcação</span></div></li>
+    <li><div class="contacto"><span class="contacto__icone">${I.local}</span><span class="contacto__nome">Oficina</span><span class="contacto__valor">${esc(site.localidade)}</span></div></li>
   </ul>
   <p class="contactos__identificacao">${ident}</p>
 </div>`;
