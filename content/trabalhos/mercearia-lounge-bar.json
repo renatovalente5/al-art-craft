@@ -15,7 +15,7 @@
   "produtos": [
     "porta-menus"
   ],
-  "destaque": true,
+  "destaque": false,
   "publicado": true,
   "ordem": 5
 }

@@ -14,7 +14,7 @@
   "produtos": [
     "base-gravada"
   ],
-  "destaque": false,
+  "destaque": true,
   "publicado": true,
   "ordem": 8
 }
