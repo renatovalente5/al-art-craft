@@ -1,0 +1,38 @@
+{
+  "nome": "Tábua de madeira Africana",
+  "categoria": "tabuas-de-servir",
+  "preco": 65,
+  "desde": false,
+  "unidade": null,
+  "resumo": "Madeira tropical, com zona de carne, zona de batata e molheira.",
+  "descricao": "Densa e durável, com o lugar certo para a carne, a batata e o molho, e pegas laterais para a levantar.",
+  "caracteristicas": [
+    [
+      "Madeira",
+      "Africana (tropical)"
+    ],
+    [
+      "Medida",
+      "50 × 27 cm"
+    ],
+    [
+      "Pormenores",
+      "Friso para o suco da carne, molheira e pegas"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "tabua-madeira-africana-1",
+    "tabua-madeira-africana-2",
+    "tabua-madeira-africana-3",
+    "tabua-madeira-africana-4",
+    "tabua-madeira-africana-5",
+    "tabua-madeira-africana-6"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "feitaPara": "grill-alfena",
+  "destaque": true,
+  "publicado": true,
+  "ordem": 3
+}

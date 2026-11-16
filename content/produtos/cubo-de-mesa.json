@@ -1,0 +1,32 @@
+{
+  "nome": "Cubo de mesa com número e QR",
+  "categoria": "mesa-e-sala",
+  "preco": 9,
+  "desde": false,
+  "unidade": null,
+  "resumo": "Madeira maciça com o número da mesa, o logótipo e o código QR da ementa.",
+  "descricao": "O cliente aponta o telemóvel e vê a ementa.",
+  "caracteristicas": [
+    [
+      "Madeira",
+      "Maciça"
+    ],
+    [
+      "Gravação",
+      "Número, logótipo e código QR"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "cubo-de-mesa-1",
+    "cubo-de-mesa-2",
+    "cubo-de-mesa-3",
+    "cubo-de-mesa-4"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "feitaPara": "castelo",
+  "destaque": true,
+  "publicado": true,
+  "ordem": 4
+}

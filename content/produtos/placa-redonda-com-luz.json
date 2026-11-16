@@ -1,0 +1,32 @@
+{
+  "nome": "Placa redonda com luz",
+  "categoria": "placas-e-letreiros",
+  "preco": 280,
+  "desde": true,
+  "unidade": null,
+  "resumo": "Placa de fachada com luz LED.",
+  "descricao": "Vê-se de dia e de noite.",
+  "caracteristicas": [
+    [
+      "Luz",
+      "LED"
+    ],
+    [
+      "Uso",
+      "Exterior"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "placa-redonda-com-luz-1",
+    "placa-redonda-com-luz-2",
+    "placa-redonda-com-luz-3",
+    "placa-redonda-com-luz-4"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "feitaPara": "coice-da-mula",
+  "destaque": false,
+  "publicado": true,
+  "ordem": 5
+}

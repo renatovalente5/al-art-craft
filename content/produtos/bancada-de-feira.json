@@ -1,0 +1,25 @@
+{
+  "nome": "Bancada de vendas para feiras",
+  "categoria": "catering-e-eventos",
+  "preco": 690,
+  "desde": true,
+  "unidade": null,
+  "resumo": "Bancada com toldo para feiras e mercados.",
+  "descricao": "Para vender artesanato, doces ou produtos da terra.",
+  "caracteristicas": [
+    [
+      "Pormenores",
+      "Toldo e prateleiras"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "bancada-de-feira-1"
+  ],
+  "video": "bancada-de-feira",
+  "videoOrigem": "DLMlflHNzAc",
+  "feitaPara": null,
+  "destaque": false,
+  "publicado": true,
+  "ordem": 3
+}

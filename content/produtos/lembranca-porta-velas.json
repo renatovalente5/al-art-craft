@@ -1,0 +1,30 @@
+{
+  "nome": "Lembrança porta-velas",
+  "categoria": "catering-e-eventos",
+  "preco": 4.5,
+  "desde": false,
+  "unidade": "unidade",
+  "resumo": "Rodela de pinho com vela, para oferecer aos convidados.",
+  "descricao": "Lembranças de casamento e batizado, com os nomes gravados.",
+  "caracteristicas": [
+    [
+      "Madeira",
+      "Pinho"
+    ],
+    [
+      "Personalização",
+      "Nomes e data"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "lembranca-porta-velas-1",
+    "lembranca-porta-velas-2"
+  ],
+  "video": "lembranca-porta-velas",
+  "videoOrigem": "C-fKUyAigbV",
+  "feitaPara": null,
+  "destaque": false,
+  "publicado": true,
+  "ordem": 5
+}

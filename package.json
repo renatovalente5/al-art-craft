@@ -1,0 +1,10 @@
+{
+  "name": "al-art-craft",
+  "private": true,
+  "type": "module",
+  "description": "Site da AL Art Craft (Alberto Lopes, Fafe): peças em madeira por medida, encomendas pelo WhatsApp.",
+  "scripts": {
+    "imagens": "python3 scripts/imagens.py",
+    "propostas": "node propostas/gerar.mjs"
+  }
+}

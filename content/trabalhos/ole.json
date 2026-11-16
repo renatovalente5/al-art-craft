@@ -1,0 +1,20 @@
+{
+  "cliente": "Olé",
+  "titulo": "Tábuas compridas para tapas",
+  "local": null,
+  "ano": 2025,
+  "fotos": [
+    "tabua-para-tapas-3",
+    "tabua-para-tapas-2",
+    "tabua-para-tapas-1",
+    "trabalho-ole-4"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "produtos": [
+    "tabua-para-tapas"
+  ],
+  "destaque": false,
+  "publicado": true,
+  "ordem": 24
+}

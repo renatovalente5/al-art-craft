@@ -1,0 +1,20 @@
+{
+  "cliente": "Mezze",
+  "titulo": "Bases de madeira Africana com gravação oriental",
+  "local": null,
+  "ano": 2026,
+  "fotos": [
+    "base-gravada-2",
+    "base-gravada-1",
+    "trabalho-mezze-3",
+    "trabalho-mezze-4"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "produtos": [
+    "base-gravada"
+  ],
+  "destaque": false,
+  "publicado": true,
+  "ordem": 8
+}

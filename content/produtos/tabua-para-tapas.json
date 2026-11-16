@@ -1,0 +1,32 @@
+{
+  "nome": "Tábua comprida para tapas",
+  "categoria": "tabuas-de-servir",
+  "preco": 22,
+  "desde": false,
+  "unidade": null,
+  "resumo": "Comprida e estreita, com rebaixe.",
+  "descricao": "Para servir tapas, petiscos e doces em linha.",
+  "caracteristicas": [
+    [
+      "Madeira",
+      "Pinho"
+    ],
+    [
+      "Pormenores",
+      "Rebaixe a todo o comprimento"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "tabua-para-tapas-1",
+    "tabua-para-tapas-2",
+    "tabua-para-tapas-3",
+    "tabua-para-tapas-4"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "feitaPara": "ole",
+  "destaque": false,
+  "publicado": true,
+  "ordem": 10
+}

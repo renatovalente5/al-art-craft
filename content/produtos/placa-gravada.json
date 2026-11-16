@@ -1,0 +1,37 @@
+{
+  "nome": "Placa de madeira maciça gravada",
+  "categoria": "placas-e-letreiros",
+  "preco": 160,
+  "desde": true,
+  "unidade": null,
+  "resumo": "Gravada em baixo relevo, pintada e protegida para o exterior.",
+  "descricao": "Para entradas, quintas, restaurantes e alojamento rural.",
+  "caracteristicas": [
+    [
+      "Gravação",
+      "Baixo relevo (CNC)"
+    ],
+    [
+      "Uso",
+      "Interior e exterior"
+    ],
+    [
+      "Medida",
+      "Por medida"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "placa-gravada-1",
+    "placa-gravada-2",
+    "placa-gravada-3",
+    "placa-gravada-4",
+    "placa-gravada-5"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "feitaPara": "uima-river-house",
+  "destaque": true,
+  "publicado": true,
+  "ordem": 1
+}

@@ -1,0 +1,20 @@
+{
+  "cliente": "Casa do Maibelo",
+  "titulo": "Caixas de madeira gravadas",
+  "local": null,
+  "ano": 2025,
+  "fotos": [
+    "caixa-com-pegas-2",
+    "caixa-com-pegas-3",
+    "caixa-com-pegas-1",
+    "trabalho-casa-do-maibelo-4"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "produtos": [
+    "caixa-com-pegas"
+  ],
+  "destaque": false,
+  "publicado": true,
+  "ordem": 23
+}

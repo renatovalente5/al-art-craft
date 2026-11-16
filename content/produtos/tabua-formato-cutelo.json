@@ -1,0 +1,32 @@
+{
+  "nome": "Tábua em formato de cutelo",
+  "categoria": "tabuas-de-servir",
+  "preco": 42,
+  "desde": false,
+  "unidade": null,
+  "resumo": "Uma tábua com feitio de cutelo, com inserções metálicas.",
+  "descricao": "Para servir o churrasco de uma maneira diferente.",
+  "caracteristicas": [
+    [
+      "Madeira",
+      "Pinho tostado"
+    ],
+    [
+      "Pormenores",
+      "Inserções metálicas"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "tabua-formato-cutelo-1",
+    "tabua-formato-cutelo-2",
+    "tabua-formato-cutelo-3",
+    "tabua-formato-cutelo-4"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "feitaPara": null,
+  "destaque": false,
+  "publicado": true,
+  "ordem": 8
+}

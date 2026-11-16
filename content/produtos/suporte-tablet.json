@@ -1,0 +1,25 @@
+{
+  "nome": "Suporte para tablet ou livro",
+  "categoria": "mesa-e-sala",
+  "preco": 35,
+  "desde": false,
+  "unidade": null,
+  "resumo": "Para ler à mesa ou apoiar o tablet.",
+  "descricao": "O desenho é personalizado; este tem efeito 3D.",
+  "caracteristicas": [
+    [
+      "Pormenores",
+      "Desenho personalizado"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "suporte-tablet-1"
+  ],
+  "video": "suporte-tablet",
+  "videoOrigem": "DUOrbk9Cgc2",
+  "feitaPara": null,
+  "destaque": false,
+  "publicado": true,
+  "ordem": 7
+}

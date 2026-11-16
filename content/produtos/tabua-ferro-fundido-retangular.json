@@ -1,0 +1,33 @@
+{
+  "nome": "Tábua medieval com chapa retangular",
+  "categoria": "ferro-fundido",
+  "preco": 95,
+  "desde": false,
+  "unidade": null,
+  "resumo": "Chapa de ferro fundido retangular, com pegas, numa base de madeira.",
+  "descricao": "Para grelhados que têm de chegar a ferver à mesa.",
+  "caracteristicas": [
+    [
+      "Chapa",
+      "Ferro fundido, retangular, com pegas"
+    ],
+    [
+      "Base",
+      "Madeira com tachas metálicas"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "tabua-ferro-fundido-retangular-1",
+    "tabua-ferro-fundido-retangular-2",
+    "tabua-ferro-fundido-retangular-3",
+    "tabua-ferro-fundido-retangular-4",
+    "tabua-ferro-fundido-retangular-5"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "feitaPara": null,
+  "destaque": false,
+  "publicado": true,
+  "ordem": 2
+}

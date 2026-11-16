@@ -1,0 +1,21 @@
+{
+  "cliente": "Mercearia Lounge Bar",
+  "titulo": "Porta-menus A5 com o logótipo",
+  "local": null,
+  "ano": 2026,
+  "fotos": [
+    "porta-menus-1",
+    "trabalho-mercearia-lounge-bar-2",
+    "trabalho-mercearia-lounge-bar-3",
+    "trabalho-mercearia-lounge-bar-4",
+    "trabalho-mercearia-lounge-bar-5"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "produtos": [
+    "porta-menus"
+  ],
+  "destaque": true,
+  "publicado": true,
+  "ordem": 5
+}

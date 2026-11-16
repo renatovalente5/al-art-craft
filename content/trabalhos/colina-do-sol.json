@@ -1,0 +1,20 @@
+{
+  "cliente": "Colina do Sol",
+  "titulo": "Caixas para pão",
+  "local": null,
+  "ano": 2026,
+  "fotos": [
+    "caixa-para-pao-1",
+    "caixa-para-pao-2",
+    "trabalho-colina-do-sol-3",
+    "trabalho-colina-do-sol-4"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "produtos": [
+    "caixa-para-pao"
+  ],
+  "destaque": false,
+  "publicado": true,
+  "ordem": 22
+}

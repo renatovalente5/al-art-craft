@@ -1,0 +1,27 @@
+{
+  "nome": "Cardápio de mesa",
+  "categoria": "mesa-e-sala",
+  "preco": 14,
+  "desde": false,
+  "unidade": null,
+  "resumo": "Pequeno cardápio de pé, para o balcão ou a mesa.",
+  "descricao": "Para a lista do dia, as sugestões ou os preços.",
+  "caracteristicas": [
+    [
+      "Personalização",
+      "Texto e logótipo gravados"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "cardapio-de-mesa-1",
+    "cardapio-de-mesa-2",
+    "cardapio-de-mesa-3"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "feitaPara": null,
+  "destaque": false,
+  "publicado": true,
+  "ordem": 2
+}

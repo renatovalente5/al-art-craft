@@ -1,0 +1,33 @@
+{
+  "nome": "Carrinho de apoio para catering",
+  "categoria": "catering-e-eventos",
+  "preco": 1290,
+  "desde": true,
+  "unidade": null,
+  "resumo": "Madeira sólida, desmontável, com rodas para todo o terreno.",
+  "descricao": "Prateleiras, tampo rebatível, tachas metálicas e o logótipo em acrílico à frente.",
+  "caracteristicas": [
+    [
+      "Madeira",
+      "Sólida, desmontável"
+    ],
+    [
+      "Rodas",
+      "Todo o terreno"
+    ],
+    [
+      "Pormenores",
+      "Prateleiras e tampo rebatível"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "carrinho-de-catering-1"
+  ],
+  "video": "carrinho-de-catering",
+  "videoOrigem": "DeHt1s-gfaV",
+  "feitaPara": "bandita",
+  "destaque": false,
+  "publicado": true,
+  "ordem": 2
+}

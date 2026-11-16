@@ -1,0 +1,25 @@
+{
+  "nome": "Tábua de dois andares",
+  "categoria": "tabuas-de-servir",
+  "preco": 79,
+  "desde": false,
+  "unidade": null,
+  "resumo": "Dois níveis numa só peça.",
+  "descricao": "Para carne, marisco ou fruta, com mais espaço na mesa.",
+  "caracteristicas": [
+    [
+      "Pormenores",
+      "Dois níveis"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "tabua-de-dois-andares-1"
+  ],
+  "video": "tabua-de-dois-andares",
+  "videoOrigem": "DShQia1Akal",
+  "feitaPara": null,
+  "destaque": false,
+  "publicado": true,
+  "ordem": 15
+}

@@ -1,0 +1,21 @@
+{
+  "cliente": "Taberna S. Tiago",
+  "titulo": "Tábuas rústicas e placa de entrada",
+  "local": "Fafião, Gerês",
+  "ano": 2025,
+  "fotos": [
+    "tabua-rustica-4",
+    "placa-com-postes-1",
+    "trabalho-taberna-santiago-3",
+    "tabua-rustica-2"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "produtos": [
+    "tabua-rustica",
+    "placa-com-postes"
+  ],
+  "destaque": false,
+  "publicado": true,
+  "ordem": 17
+}

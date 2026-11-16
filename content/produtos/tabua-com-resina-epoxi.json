@@ -1,0 +1,36 @@
+{
+  "nome": "Tábua com canal em resina epóxi",
+  "categoria": "tabuas-de-servir",
+  "preco": 95,
+  "desde": false,
+  "unidade": null,
+  "resumo": "Madeira tropical com um canal em resina epóxi a toda a volta.",
+  "descricao": "Uma peça de destaque: o canal em resina segura o suco da carne e o nome fica gravado na madeira.",
+  "caracteristicas": [
+    [
+      "Madeira",
+      "Tropical"
+    ],
+    [
+      "Medida",
+      "40 × 25 cm"
+    ],
+    [
+      "Pormenores",
+      "Canal em resina epóxi"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "tabua-com-resina-epoxi-1",
+    "tabua-com-resina-epoxi-2",
+    "tabua-com-resina-epoxi-3",
+    "tabua-com-resina-epoxi-4"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "feitaPara": null,
+  "destaque": false,
+  "publicado": true,
+  "ordem": 7
+}

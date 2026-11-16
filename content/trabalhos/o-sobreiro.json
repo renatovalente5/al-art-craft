@@ -1,0 +1,20 @@
+{
+  "cliente": "O Sobreiro",
+  "titulo": "Tábuas de entradas com ardósia",
+  "local": null,
+  "ano": 2024,
+  "fotos": [
+    "trabalho-o-sobreiro-1",
+    "trabalho-o-sobreiro-2",
+    "trabalho-o-sobreiro-3",
+    "trabalho-o-sobreiro-4"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "produtos": [
+    "tabua-com-ardosia"
+  ],
+  "destaque": false,
+  "publicado": true,
+  "ordem": 14
+}

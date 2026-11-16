@@ -1,0 +1,25 @@
+{
+  "nome": "Expositor de menu para exterior",
+  "categoria": "catering-e-eventos",
+  "preco": 180,
+  "desde": true,
+  "unidade": null,
+  "resumo": "Expositor resistente ao tempo, para mostrar o menu à porta.",
+  "descricao": "Para restaurantes, bares e esplanadas.",
+  "caracteristicas": [
+    [
+      "Uso",
+      "Exterior"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "expositor-de-exterior-1"
+  ],
+  "video": "expositor-de-exterior",
+  "videoOrigem": "C-E9DNBgGMq",
+  "feitaPara": null,
+  "destaque": false,
+  "publicado": true,
+  "ordem": 6
+}

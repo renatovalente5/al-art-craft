@@ -1,0 +1,20 @@
+{
+  "cliente": "Castelo",
+  "titulo": "Cubos de mesa com número e QR",
+  "local": null,
+  "ano": 2026,
+  "fotos": [
+    "cubo-de-mesa-2",
+    "cubo-de-mesa-1",
+    "trabalho-castelo-3",
+    "trabalho-castelo-4"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "produtos": [
+    "cubo-de-mesa"
+  ],
+  "destaque": false,
+  "publicado": true,
+  "ordem": 7
+}

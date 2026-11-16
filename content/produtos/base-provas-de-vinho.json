@@ -1,0 +1,39 @@
+{
+  "nome": "Base para provas de vinho",
+  "categoria": "pratos-e-bases",
+  "preco": 22,
+  "desde": true,
+  "unidade": null,
+  "resumo": "Cada copo tem o seu lugar.",
+  "descricao": "Para provas e degustações, em madeira exótica muito resistente.",
+  "caracteristicas": [
+    [
+      "Medida",
+      "3 copos: 30 × 15 cm · 4 copos: 40 × 15 cm"
+    ]
+  ],
+  "opcoes": [
+    {
+      "nome": "Copos",
+      "valores": [
+        {
+          "nome": "3 copos",
+          "mais": 0
+        },
+        {
+          "nome": "4 copos",
+          "mais": 6
+        }
+      ]
+    }
+  ],
+  "fotos": [
+    "base-provas-de-vinho-1"
+  ],
+  "video": "base-provas-de-vinho",
+  "videoOrigem": "DB93z7Ostob",
+  "feitaPara": null,
+  "destaque": false,
+  "publicado": true,
+  "ordem": 5
+}

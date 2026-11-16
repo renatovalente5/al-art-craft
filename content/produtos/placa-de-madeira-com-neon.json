@@ -1,0 +1,25 @@
+{
+  "nome": "Placa de madeira com néon",
+  "categoria": "placas-e-letreiros",
+  "preco": 220,
+  "desde": true,
+  "unidade": null,
+  "resumo": "Madeira e néon quente, para um ambiente acolhedor.",
+  "descricao": "Para a fachada ou para o interior do seu espaço.",
+  "caracteristicas": [
+    [
+      "Luz",
+      "Néon LED quente"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "placa-de-madeira-com-neon-1"
+  ],
+  "video": "placa-de-madeira-com-neon",
+  "videoOrigem": "DPbKV9UiHuI",
+  "feitaPara": null,
+  "destaque": false,
+  "publicado": true,
+  "ordem": 8
+}

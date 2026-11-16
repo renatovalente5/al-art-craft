@@ -1,0 +1,21 @@
+{
+  "cliente": "Café Estrela",
+  "titulo": "Tábuas e caixas com o logótipo",
+  "local": "Porto",
+  "ano": 2024,
+  "fotos": [
+    "tabua-de-pinho-com-pega-5",
+    "caixa-com-pegas-5",
+    "trabalho-cafe-estrela-3",
+    "trabalho-cafe-estrela-4"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "produtos": [
+    "tabua-de-pinho-com-pega",
+    "caixa-com-pegas"
+  ],
+  "destaque": false,
+  "publicado": true,
+  "ordem": 15
+}

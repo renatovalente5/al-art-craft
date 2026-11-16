@@ -1,0 +1,28 @@
+{
+  "nome": "Porta-alianças",
+  "categoria": "catering-e-eventos",
+  "preco": 29,
+  "desde": false,
+  "unidade": null,
+  "resumo": "Rodela de madeira com os nomes e a data dos noivos.",
+  "descricao": "Para as alianças no dia do casamento; fica de recordação.",
+  "caracteristicas": [
+    [
+      "Personalização",
+      "Nomes e data"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "porta-aliancas-1",
+    "porta-aliancas-2",
+    "porta-aliancas-3",
+    "porta-aliancas-4"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "feitaPara": null,
+  "destaque": false,
+  "publicado": true,
+  "ordem": 4
+}

@@ -1,0 +1,30 @@
+{
+  "nome": "Placa Aberto / Fechado",
+  "categoria": "placas-e-letreiros",
+  "preco": 35,
+  "desde": false,
+  "unidade": null,
+  "resumo": "Placa redonda de dupla face.",
+  "descricao": "De um lado «Aberto», do outro «Fechado», com o logótipo.",
+  "caracteristicas": [
+    [
+      "Faces",
+      "Duas"
+    ],
+    [
+      "Personalização",
+      "Logótipo"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "placa-aberto-fechado-1",
+    "placa-aberto-fechado-2"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "feitaPara": "bandita",
+  "destaque": false,
+  "publicado": true,
+  "ordem": 6
+}

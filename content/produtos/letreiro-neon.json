@@ -1,0 +1,36 @@
+{
+  "nome": "Letreiro néon",
+  "categoria": "placas-e-letreiros",
+  "preco": 190,
+  "desde": true,
+  "unidade": null,
+  "resumo": "A frase ou o logótipo em néon LED, recortado em acrílico.",
+  "descricao": "Para a sala, o balcão ou a parede da fotografia.",
+  "caracteristicas": [
+    [
+      "Luz",
+      "Néon LED"
+    ],
+    [
+      "Base",
+      "Acrílico recortado"
+    ],
+    [
+      "Cor",
+      "À escolha"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "letreiro-neon-1",
+    "letreiro-neon-2",
+    "letreiro-neon-3",
+    "letreiro-neon-4"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "feitaPara": null,
+  "destaque": true,
+  "publicado": true,
+  "ordem": 4
+}

@@ -1,0 +1,29 @@
+{
+  "nome": "Base para prato de ferro fundido",
+  "categoria": "ferro-fundido",
+  "preco": 26,
+  "desde": false,
+  "unidade": null,
+  "resumo": "Uma base de madeira à medida do prato de ferro fundido.",
+  "descricao": "Para pousar o prato quente na mesa, com o logótipo da casa.",
+  "caracteristicas": [
+    [
+      "Prato",
+      "30 cm de diâmetro"
+    ],
+    [
+      "Personalização",
+      "Logótipo gravado"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "base-prato-ferro-fundido-1"
+  ],
+  "video": "base-prato-ferro-fundido",
+  "videoOrigem": "DYJyOZ5H73O",
+  "feitaPara": null,
+  "destaque": false,
+  "publicado": true,
+  "ordem": 4
+}

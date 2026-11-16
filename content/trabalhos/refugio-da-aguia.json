@@ -1,0 +1,20 @@
+{
+  "cliente": "Refúgio da Águia",
+  "titulo": "Prancha rústica gravada",
+  "local": null,
+  "ano": 2025,
+  "fotos": [
+    "prancha-rustica-4",
+    "prancha-rustica-5",
+    "trabalho-refugio-da-aguia-3",
+    "trabalho-refugio-da-aguia-4"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "produtos": [
+    "prancha-rustica"
+  ],
+  "destaque": false,
+  "publicado": true,
+  "ordem": 12
+}

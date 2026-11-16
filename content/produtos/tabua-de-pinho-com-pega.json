@@ -1,0 +1,38 @@
+{
+  "nome": "Tábua de pinho com pega",
+  "categoria": "tabuas-de-servir",
+  "preco": 19,
+  "desde": false,
+  "unidade": null,
+  "resumo": "Leve, com pega e friso, e com o seu logótipo.",
+  "descricao": "A tábua do dia a dia de muitos restaurantes, com proteção contra manchas.",
+  "caracteristicas": [
+    [
+      "Madeira",
+      "Pinho com proteção anti-manchas"
+    ],
+    [
+      "Medida",
+      "50 × 18 cm"
+    ],
+    [
+      "Pormenores",
+      "Friso para o suco da carne"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "tabua-de-pinho-com-pega-1",
+    "tabua-de-pinho-com-pega-2",
+    "tabua-de-pinho-com-pega-3",
+    "tabua-de-pinho-com-pega-4",
+    "tabua-de-pinho-com-pega-5",
+    "tabua-de-pinho-com-pega-6"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "feitaPara": "papo-furado",
+  "destaque": true,
+  "publicado": true,
+  "ordem": 9
+}

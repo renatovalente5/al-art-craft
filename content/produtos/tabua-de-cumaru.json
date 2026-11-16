@@ -1,0 +1,33 @@
+{
+  "nome": "Tábua de CUMARU vermelho",
+  "categoria": "tabuas-de-servir",
+  "preco": 59,
+  "desde": false,
+  "unidade": null,
+  "resumo": "Madeira tropical da América do Sul, muito densa e resistente.",
+  "descricao": "Uma madeira que aguenta anos de serviço, com uma cor quente que dá vida à mesa.",
+  "caracteristicas": [
+    [
+      "Madeira",
+      "CUMARU vermelho"
+    ],
+    [
+      "Pormenores",
+      "Friso e rebaixe para levantar"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "tabua-de-cumaru-1",
+    "tabua-de-cumaru-2",
+    "tabua-de-cumaru-3",
+    "tabua-de-cumaru-4",
+    "tabua-de-cumaru-5"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "feitaPara": null,
+  "destaque": false,
+  "publicado": true,
+  "ordem": 6
+}

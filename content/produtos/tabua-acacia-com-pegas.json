@@ -1,0 +1,37 @@
+{
+  "nome": "Tábua de Acácia com pegas",
+  "categoria": "tabuas-de-servir",
+  "preco": 45,
+  "desde": false,
+  "unidade": null,
+  "resumo": "Acácia de 2,6 cm, com rebaixe para os alimentos e pegas laterais.",
+  "descricao": "Uma tábua com presença para levar à mesa: o rebaixe segura os alimentos e as pegas ajudam a levantá-la.",
+  "caracteristicas": [
+    [
+      "Madeira",
+      "Acácia"
+    ],
+    [
+      "Medida",
+      "45 × 30 × 2,6 cm"
+    ],
+    [
+      "Pormenores",
+      "Rebaixes para recipientes e pegas laterais"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "tabua-acacia-com-pegas-1",
+    "tabua-acacia-com-pegas-2",
+    "tabua-acacia-com-pegas-3",
+    "tabua-acacia-com-pegas-4",
+    "tabua-acacia-com-pegas-5"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "feitaPara": null,
+  "destaque": true,
+  "publicado": true,
+  "ordem": 1
+}

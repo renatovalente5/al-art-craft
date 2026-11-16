@@ -1,0 +1,20 @@
+{
+  "cliente": "Bandita Honest Paellas",
+  "titulo": "Carrinho de catering e placa Aberto / Fechado",
+  "local": null,
+  "ano": 2026,
+  "fotos": [
+    "placa-aberto-fechado-1",
+    "carrinho-de-catering-1",
+    "placa-aberto-fechado-2"
+  ],
+  "video": "carrinho-de-catering",
+  "videoOrigem": "DeHt1s-gfaV",
+  "produtos": [
+    "carrinho-de-catering",
+    "placa-aberto-fechado"
+  ],
+  "destaque": false,
+  "publicado": true,
+  "ordem": 10
+}

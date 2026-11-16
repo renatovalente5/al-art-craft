@@ -1,0 +1,37 @@
+{
+  "nome": "Prato de madeira",
+  "categoria": "pratos-e-bases",
+  "preco": 15,
+  "desde": false,
+  "unidade": null,
+  "resumo": "Prato de 23 cm com zona para a marca e rebaixe para levantar.",
+  "descricao": "Pensado para o polvo, serve para muito mais.",
+  "caracteristicas": [
+    [
+      "Madeira",
+      "Pinho"
+    ],
+    [
+      "Diâmetro",
+      "23 cm"
+    ],
+    [
+      "Pormenores",
+      "Rebaixe para levantar da mesa"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "prato-de-madeira-1",
+    "prato-de-madeira-2",
+    "prato-de-madeira-3",
+    "prato-de-madeira-4",
+    "prato-de-madeira-5"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "feitaPara": "sal-e-brasa",
+  "destaque": true,
+  "publicado": true,
+  "ordem": 1
+}

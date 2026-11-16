@@ -1,0 +1,32 @@
+{
+  "nome": "Caixa lacada com gravação dourada",
+  "categoria": "caixas",
+  "preco": 45,
+  "desde": false,
+  "unidade": null,
+  "resumo": "Caixa branca de 40 × 30 × 20 cm, com gravação em dourado espelho.",
+  "descricao": "Para catering, pastelaria e presentes.",
+  "caracteristicas": [
+    [
+      "Medida",
+      "40 × 30 × 20 cm"
+    ],
+    [
+      "Gravação",
+      "Dourado espelho"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "caixa-lacada-1",
+    "caixa-lacada-2",
+    "caixa-lacada-3",
+    "caixa-lacada-4"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "feitaPara": "sweet-dreams",
+  "destaque": false,
+  "publicado": true,
+  "ordem": 3
+}

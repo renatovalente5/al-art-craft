@@ -1,0 +1,25 @@
+{
+  "cliente": "Sal & Brasa",
+  "titulo": "Porta-contas, reservados, pratos e tapete",
+  "local": null,
+  "ano": 2026,
+  "fotos": [
+    "porta-contas-2",
+    "trabalho-sal-e-brasa-2",
+    "prato-de-madeira-4",
+    "porta-contas-4",
+    "trabalho-sal-e-brasa-5",
+    "trabalho-sal-e-brasa-6"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "produtos": [
+    "porta-contas",
+    "reservado-de-mesa",
+    "prato-de-madeira",
+    "tapete-de-entrada"
+  ],
+  "destaque": true,
+  "publicado": true,
+  "ordem": 4
+}

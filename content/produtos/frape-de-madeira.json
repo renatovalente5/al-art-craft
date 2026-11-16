@@ -1,0 +1,29 @@
+{
+  "nome": "Frapê de madeira",
+  "categoria": "mesa-e-sala",
+  "preco": 85,
+  "desde": false,
+  "unidade": null,
+  "resumo": "Frapê personalizado com interior em acrílico estanque.",
+  "descricao": "Mantém as bebidas frescas e dá outra apresentação ao serviço.",
+  "caracteristicas": [
+    [
+      "Interior",
+      "Acrílico estanque"
+    ],
+    [
+      "Personalização",
+      "Logótipo gravado"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "frape-de-madeira-1"
+  ],
+  "video": "frape-de-madeira",
+  "videoOrigem": "Db0eZ4NAneJ",
+  "feitaPara": "papo-furado",
+  "destaque": false,
+  "publicado": true,
+  "ordem": 6
+}

@@ -1,0 +1,32 @@
+{
+  "nome": "Tábua de carvalho maciço",
+  "categoria": "tabuas-de-servir",
+  "preco": 39,
+  "desde": false,
+  "unidade": null,
+  "resumo": "Carvalho maciço, com friso para o suco.",
+  "descricao": "Firme e bonita, para carnes e frios.",
+  "caracteristicas": [
+    [
+      "Madeira",
+      "Carvalho maciço"
+    ],
+    [
+      "Pormenores",
+      "Friso para o suco da carne"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "tabua-de-carvalho-1",
+    "tabua-de-carvalho-2",
+    "tabua-de-carvalho-3",
+    "tabua-de-carvalho-4"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "feitaPara": "monte-verde",
+  "destaque": false,
+  "publicado": true,
+  "ordem": 12
+}

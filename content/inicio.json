@@ -1,0 +1,28 @@
+{
+  "capa": {
+    "titulo": "Peças em madeira com a marca da sua casa",
+    "texto": "Tábuas, placas e peças por medida para restaurantes, catering e quintas de eventos. Desenhadas em 3D, gravadas a laser e acabadas à mão em Fafe.",
+    "video": "capa-laser"
+  },
+  "processo": [
+    {
+      "titulo": "Desenho em 3D",
+      "texto": "Antes de cortar, mostro-lhe o projeto em 3D para aprovar.",
+      "foto": "processo-3d"
+    },
+    {
+      "titulo": "Corte e gravação",
+      "texto": "CNC e laser para recortar a madeira e gravar o seu logótipo.",
+      "video": "processo-cnc"
+    },
+    {
+      "titulo": "Acabamento à mão",
+      "texto": "Lixado, pintado e protegido, pronto para anos de serviço.",
+      "video": "processo-acabamento"
+    }
+  ],
+  "convite": {
+    "titulo": "Tem uma ideia?",
+    "texto": "Mande-me uma fotografia ou um desenho pelo WhatsApp e digo-lhe o que é possível e quanto custa."
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "nome": "Prancha rústica gravada",
+  "categoria": "placas-e-letreiros",
+  "preco": 290,
+  "desde": true,
+  "unidade": null,
+  "resumo": "Prancha maciça com o nome da casa, até 1,80 m.",
+  "descricao": "Para pousar no jardim ou pendurar na fachada.",
+  "caracteristicas": [
+    [
+      "Comprimento",
+      "Até 1,80 m"
+    ],
+    [
+      "Gravação",
+      "Baixo relevo (CNC)"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "prancha-rustica-1",
+    "prancha-rustica-2",
+    "prancha-rustica-3",
+    "prancha-rustica-4",
+    "prancha-rustica-5"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "feitaPara": "casa-da-eira",
+  "destaque": false,
+  "publicado": true,
+  "ordem": 2
+}

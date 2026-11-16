@@ -1,0 +1,20 @@
+{
+  "cliente": "Grill Alfena",
+  "titulo": "Tábuas de madeira Africana",
+  "local": null,
+  "ano": 2025,
+  "fotos": [
+    "tabua-madeira-africana-2",
+    "trabalho-grill-alfena-2",
+    "tabua-madeira-africana-3",
+    "trabalho-grill-alfena-4"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "produtos": [
+    "tabua-madeira-africana"
+  ],
+  "destaque": false,
+  "publicado": true,
+  "ordem": 18
+}

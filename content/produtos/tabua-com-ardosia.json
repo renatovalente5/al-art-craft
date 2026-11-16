@@ -1,0 +1,37 @@
+{
+  "nome": "Tábua com ardósia",
+  "categoria": "tabuas-de-servir",
+  "preco": 35,
+  "desde": false,
+  "unidade": null,
+  "resumo": "Pinho com uma placa de ardósia embutida e rebaixes para molhos.",
+  "descricao": "Para entradas, queijos e enchidos: a ardósia fica embutida e os rebaixes seguram as taças.",
+  "caracteristicas": [
+    [
+      "Madeira",
+      "Pinho"
+    ],
+    [
+      "Medida",
+      "37 × 24 cm"
+    ],
+    [
+      "Pormenores",
+      "Ardósia embutida e 3 rebaixes para taças"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "tabua-com-ardosia-1",
+    "tabua-com-ardosia-2",
+    "tabua-com-ardosia-3",
+    "tabua-com-ardosia-4",
+    "tabua-com-ardosia-5"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "feitaPara": "dom-barril",
+  "destaque": false,
+  "publicado": true,
+  "ordem": 5
+}

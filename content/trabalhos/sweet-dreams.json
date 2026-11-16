@@ -1,0 +1,23 @@
+{
+  "cliente": "Sweet Dreams",
+  "titulo": "Bancada de catering e caixas lacadas",
+  "local": null,
+  "ano": 2025,
+  "fotos": [
+    "bancada-de-catering-7",
+    "bancada-de-catering-6",
+    "trabalho-sweet-dreams-3",
+    "trabalho-sweet-dreams-4",
+    "caixa-lacada-1",
+    "trabalho-sweet-dreams-6"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "produtos": [
+    "bancada-de-catering",
+    "caixa-lacada"
+  ],
+  "destaque": true,
+  "publicado": true,
+  "ordem": 6
+}

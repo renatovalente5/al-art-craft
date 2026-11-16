@@ -1,0 +1,33 @@
+{
+  "nome": "Caixa para pão",
+  "categoria": "caixas",
+  "preco": 9,
+  "desde": false,
+  "unidade": null,
+  "resumo": "Caixa de madeira de 15 × 15 × 7 cm, com o logótipo.",
+  "descricao": "Para servir o pão à mesa. Também se faz por medida.",
+  "caracteristicas": [
+    [
+      "Medida",
+      "15 × 15 × 7 cm (ou por medida)"
+    ],
+    [
+      "Personalização",
+      "Logótipo gravado"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "caixa-para-pao-1",
+    "caixa-para-pao-2",
+    "caixa-para-pao-3",
+    "caixa-para-pao-4",
+    "caixa-para-pao-5"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "feitaPara": "colina-do-sol",
+  "destaque": true,
+  "publicado": true,
+  "ordem": 1
+}

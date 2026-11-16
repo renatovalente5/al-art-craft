@@ -1,0 +1,33 @@
+{
+  "nome": "Porta-espetadas",
+  "categoria": "pratos-e-bases",
+  "preco": 39,
+  "desde": false,
+  "unidade": null,
+  "resumo": "Base de madeira tropical com prato e haste em inox.",
+  "descricao": "A espetada chega à mesa pendurada, com o logótipo gravado na base.",
+  "caracteristicas": [
+    [
+      "Base",
+      "Madeira tropical"
+    ],
+    [
+      "Prato e haste",
+      "Inox"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "porta-espetadas-1",
+    "porta-espetadas-2",
+    "porta-espetadas-3",
+    "porta-espetadas-4",
+    "porta-espetadas-5"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "feitaPara": null,
+  "destaque": true,
+  "publicado": true,
+  "ordem": 6
+}

@@ -1,0 +1,51 @@
+[
+  {
+    "slug": "tabuas-de-servir",
+    "nome": "Tábuas de servir",
+    "frase": "Para carne, petiscos e tapas, com friso, pegas e o seu logótipo.",
+    "foto": "tabua-madeira-africana-1",
+    "ordem": 1
+  },
+  {
+    "slug": "ferro-fundido",
+    "nome": "Ferro fundido",
+    "frase": "Madeira e ferro fundido para a comida chegar quente à mesa.",
+    "foto": "tabua-ferro-fundido-redonda-1",
+    "ordem": 2
+  },
+  {
+    "slug": "pratos-e-bases",
+    "nome": "Pratos e bases",
+    "frase": "Pratos, bases e suportes para servir com a marca da casa.",
+    "foto": "porta-espetadas-1",
+    "ordem": 3
+  },
+  {
+    "slug": "mesa-e-sala",
+    "nome": "Mesa e sala",
+    "frase": "Menus, contas, números de mesa e reservados.",
+    "foto": "porta-menus-1",
+    "ordem": 4
+  },
+  {
+    "slug": "caixas",
+    "nome": "Caixas",
+    "frase": "Caixas de madeira para pão, arrumação e presentes.",
+    "foto": "caixa-para-pao-1",
+    "ordem": 5
+  },
+  {
+    "slug": "placas-e-letreiros",
+    "nome": "Placas e letreiros",
+    "frase": "Placas gravadas e néons para fachadas, jardins e quintas.",
+    "foto": "placa-gravada-1",
+    "ordem": 6
+  },
+  {
+    "slug": "catering-e-eventos",
+    "nome": "Catering e eventos",
+    "frase": "Bancadas, carrinhos e peças para servir em eventos.",
+    "foto": "bancada-de-catering-1",
+    "ordem": 7
+  }
+]

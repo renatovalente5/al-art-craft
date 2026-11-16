@@ -1,0 +1,21 @@
+{
+  "cliente": "Papo Furado",
+  "titulo": "Tábuas de pinho e frapê",
+  "local": null,
+  "ano": 2025,
+  "fotos": [
+    "tabua-de-pinho-com-pega-4",
+    "trabalho-papo-furado-2",
+    "frape-de-madeira-1",
+    "trabalho-papo-furado-4"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "produtos": [
+    "tabua-de-pinho-com-pega",
+    "frape-de-madeira"
+  ],
+  "destaque": false,
+  "publicado": true,
+  "ordem": 20
+}

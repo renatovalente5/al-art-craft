@@ -1,0 +1,32 @@
+{
+  "nome": "Reservado de mesa",
+  "categoria": "mesa-e-sala",
+  "preco": 12,
+  "desde": false,
+  "unidade": null,
+  "resumo": "Placa de reservado em carvalho maciço.",
+  "descricao": "Dá um toque pessoal à sala, com o logótipo da casa.",
+  "caracteristicas": [
+    [
+      "Madeira",
+      "Carvalho maciço"
+    ],
+    [
+      "Personalização",
+      "Logótipo gravado"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "reservado-de-mesa-1",
+    "reservado-de-mesa-2",
+    "reservado-de-mesa-3",
+    "reservado-de-mesa-4"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "feitaPara": null,
+  "destaque": false,
+  "publicado": true,
+  "ordem": 5
+}

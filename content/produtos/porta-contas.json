@@ -1,0 +1,28 @@
+{
+  "nome": "Porta-contas",
+  "categoria": "mesa-e-sala",
+  "preco": 12,
+  "desde": false,
+  "unidade": null,
+  "resumo": "Para levar a conta à mesa com a marca da casa.",
+  "descricao": "Um pormenor que se nota na hora de pagar.",
+  "caracteristicas": [
+    [
+      "Personalização",
+      "Logótipo gravado"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "porta-contas-1",
+    "porta-contas-2",
+    "porta-contas-3",
+    "porta-contas-4"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "feitaPara": "sal-e-brasa",
+  "destaque": false,
+  "publicado": true,
+  "ordem": 3
+}

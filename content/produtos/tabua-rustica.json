@@ -1,0 +1,32 @@
+{
+  "nome": "Tábua rústica de formato livre",
+  "categoria": "tabuas-de-servir",
+  "preco": 29,
+  "desde": false,
+  "unidade": null,
+  "resumo": "Cortada em formato livre: não há duas iguais.",
+  "descricao": "Para um serviço rústico, em tabernas e quintas.",
+  "caracteristicas": [
+    [
+      "Madeira",
+      "Pinho"
+    ],
+    [
+      "Formato",
+      "Livre"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "tabua-rustica-1",
+    "tabua-rustica-2",
+    "tabua-rustica-3",
+    "tabua-rustica-4"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "feitaPara": "taberna-santiago",
+  "destaque": false,
+  "publicado": true,
+  "ordem": 11
+}

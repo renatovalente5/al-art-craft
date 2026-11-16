@@ -1,0 +1,29 @@
+{
+  "nome": "Prato de Acácia",
+  "categoria": "pratos-e-bases",
+  "preco": 22,
+  "desde": false,
+  "unidade": null,
+  "resumo": "Acácia com 2,6 cm de espessura.",
+  "descricao": "Para dar um ar contemporâneo ao serviço.",
+  "caracteristicas": [
+    [
+      "Madeira",
+      "Acácia"
+    ],
+    [
+      "Espessura",
+      "2,6 cm"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "prato-de-acacia-1"
+  ],
+  "video": "prato-de-acacia",
+  "videoOrigem": "DV2t4yOgI1v",
+  "feitaPara": null,
+  "destaque": false,
+  "publicado": true,
+  "ordem": 2
+}

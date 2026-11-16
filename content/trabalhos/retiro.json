@@ -1,0 +1,22 @@
+{
+  "cliente": "O Retiro",
+  "titulo": "Tábuas de Acácia e caixas para pão",
+  "local": null,
+  "ano": 2026,
+  "fotos": [
+    "tabua-acacia-macica-1",
+    "caixa-para-pao-5",
+    "trabalho-retiro-3",
+    "trabalho-retiro-4",
+    "trabalho-retiro-5"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "produtos": [
+    "tabua-acacia-macica",
+    "caixa-para-pao"
+  ],
+  "destaque": false,
+  "publicado": true,
+  "ordem": 9
+}

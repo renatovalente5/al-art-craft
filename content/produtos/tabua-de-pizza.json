@@ -1,0 +1,29 @@
+{
+  "nome": "Tábua de pizza dupla face",
+  "categoria": "tabuas-de-servir",
+  "preco": 35,
+  "desde": false,
+  "unidade": null,
+  "resumo": "Uma face lisa para servir, outra com ranhuras para cortar.",
+  "descricao": "Em bétula, uma madeira muito resistente.",
+  "caracteristicas": [
+    [
+      "Madeira",
+      "Bétula"
+    ],
+    [
+      "Diâmetro",
+      "37 cm"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "tabua-de-pizza-1"
+  ],
+  "video": "tabua-de-pizza",
+  "videoOrigem": "DJOkcm4IWjS",
+  "feitaPara": null,
+  "destaque": false,
+  "publicado": true,
+  "ordem": 13
+}

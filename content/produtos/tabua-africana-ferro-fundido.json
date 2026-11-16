@@ -1,0 +1,34 @@
+{
+  "nome": "Tábua de madeira Africana com ferro fundido",
+  "categoria": "ferro-fundido",
+  "preco": 79,
+  "desde": false,
+  "unidade": null,
+  "resumo": "A chapa encaixa num rebaixe da tábua e não desliza.",
+  "descricao": "Madeira Africana e ferro fundido: mantém a carne quente até ao fim.",
+  "caracteristicas": [
+    [
+      "Madeira",
+      "Africana (tropical)"
+    ],
+    [
+      "Medida",
+      "50 × 26 cm"
+    ],
+    [
+      "Chapa",
+      "Ferro fundido, encaixada"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "tabua-africana-ferro-fundido-1",
+    "tabua-africana-ferro-fundido-2"
+  ],
+  "video": "tabua-africana-ferro-fundido",
+  "videoOrigem": "DXM_WiAAI-0",
+  "feitaPara": null,
+  "destaque": false,
+  "publicado": true,
+  "ordem": 3
+}

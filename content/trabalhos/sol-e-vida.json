@@ -1,0 +1,20 @@
+{
+  "cliente": "Sol e Vida",
+  "titulo": "Tábuas de madeira Africana",
+  "local": null,
+  "ano": 2025,
+  "fotos": [
+    "trabalho-sol-e-vida-1",
+    "trabalho-sol-e-vida-2",
+    "tabua-madeira-africana-6",
+    "trabalho-sol-e-vida-4"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "produtos": [
+    "tabua-madeira-africana"
+  ],
+  "destaque": false,
+  "publicado": true,
+  "ordem": 19
+}

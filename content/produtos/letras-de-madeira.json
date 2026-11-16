@@ -1,0 +1,27 @@
+{
+  "nome": "Letras de madeira maciça",
+  "categoria": "placas-e-letreiros",
+  "preco": 12,
+  "desde": false,
+  "unidade": "letra",
+  "resumo": "Letras recortadas em madeira maciça.",
+  "descricao": "À medida do seu espaço, para montras, eventos e paredes.",
+  "caracteristicas": [
+    [
+      "Altura",
+      "Até 30 cm"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "letras-de-madeira-1",
+    "letras-de-madeira-2",
+    "letras-de-madeira-3"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "feitaPara": null,
+  "destaque": false,
+  "publicado": true,
+  "ordem": 7
+}

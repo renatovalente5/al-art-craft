@@ -1,0 +1,20 @@
+{
+  "cliente": "Monte Verde",
+  "titulo": "Tábuas de carvalho e pinho",
+  "local": null,
+  "ano": 2025,
+  "fotos": [
+    "tabua-de-carvalho-1",
+    "trabalho-monte-verde-2",
+    "trabalho-monte-verde-3",
+    "tabua-de-carvalho-4"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "produtos": [
+    "tabua-de-carvalho"
+  ],
+  "destaque": false,
+  "publicado": true,
+  "ordem": 21
+}

@@ -1,0 +1,33 @@
+{
+  "nome": "Porta-menus A5",
+  "categoria": "mesa-e-sala",
+  "preco": 24,
+  "desde": false,
+  "unidade": null,
+  "resumo": "Capa de madeira com o logótipo, para folhas A5.",
+  "descricao": "Os menus mudam; a capa fica. Também se faz por medida.",
+  "caracteristicas": [
+    [
+      "Folha",
+      "A5 (ou por medida)"
+    ],
+    [
+      "Personalização",
+      "Logótipo gravado na capa"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "porta-menus-1",
+    "porta-menus-2",
+    "porta-menus-3",
+    "porta-menus-4",
+    "porta-menus-5"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "feitaPara": "mercearia-lounge-bar",
+  "destaque": true,
+  "publicado": true,
+  "ordem": 1
+}

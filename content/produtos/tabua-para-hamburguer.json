@@ -1,0 +1,30 @@
+{
+  "nome": "Tábua para hambúrguer",
+  "categoria": "tabuas-de-servir",
+  "preco": 32,
+  "desde": false,
+  "unidade": null,
+  "resumo": "Em forma de violino, com três rebaixes para a batata e os molhos.",
+  "descricao": "Para snack-bares e hamburguerias.",
+  "caracteristicas": [
+    [
+      "Formato",
+      "Violino"
+    ],
+    [
+      "Pormenores",
+      "3 rebaixes para batata e molhos"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "tabua-para-hamburguer-1",
+    "tabua-para-hamburguer-2"
+  ],
+  "video": "tabua-para-hamburguer",
+  "videoOrigem": "DWKLEZ-la4l",
+  "feitaPara": null,
+  "destaque": false,
+  "publicado": true,
+  "ordem": 16
+}

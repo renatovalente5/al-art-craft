@@ -1,0 +1,32 @@
+{
+  "nome": "Base de madeira Africana gravada",
+  "categoria": "pratos-e-bases",
+  "preco": 35,
+  "desde": false,
+  "unidade": null,
+  "resumo": "Bases com uma gravação de alto a baixo.",
+  "descricao": "Para mezze, sushi ou petiscos; o padrão da gravação escolhe-se com o cliente.",
+  "caracteristicas": [
+    [
+      "Madeira",
+      "Africana (tropical)"
+    ],
+    [
+      "Gravação",
+      "Padrão à escolha"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "base-gravada-1",
+    "base-gravada-2",
+    "base-gravada-3",
+    "base-gravada-4"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "feitaPara": "mezze",
+  "destaque": false,
+  "publicado": true,
+  "ordem": 4
+}

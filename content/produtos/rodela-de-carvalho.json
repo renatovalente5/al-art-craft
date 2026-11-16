@@ -1,0 +1,25 @@
+{
+  "nome": "Rodela de carvalho",
+  "categoria": "pratos-e-bases",
+  "preco": 25,
+  "desde": false,
+  "unidade": null,
+  "resumo": "Rodelas de carvalho maciço para servir.",
+  "descricao": "Ideais para servir carne em eventos.",
+  "caracteristicas": [
+    [
+      "Madeira",
+      "Carvalho maciço"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "rodela-de-carvalho-1"
+  ],
+  "video": "rodela-de-carvalho",
+  "videoOrigem": "DH1isLIguab",
+  "feitaPara": null,
+  "destaque": false,
+  "publicado": true,
+  "ordem": 7
+}

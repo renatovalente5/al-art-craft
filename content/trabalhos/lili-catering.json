@@ -1,0 +1,23 @@
+{
+  "cliente": "Lili Catering",
+  "titulo": "Bancada de catering com luz e tabuleiros",
+  "local": null,
+  "ano": 2025,
+  "fotos": [
+    "bancada-de-catering-2",
+    "bancada-de-catering-1",
+    "trabalho-lili-catering-3",
+    "bancada-de-catering-3",
+    "bancada-de-catering-4",
+    "bancada-de-catering-5",
+    "trabalho-lili-catering-7"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "produtos": [
+    "bancada-de-catering"
+  ],
+  "destaque": true,
+  "publicado": true,
+  "ordem": 2
+}

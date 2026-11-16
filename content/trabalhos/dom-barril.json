@@ -1,0 +1,20 @@
+{
+  "cliente": "Dom Barril",
+  "titulo": "Tábuas com ardósia",
+  "local": null,
+  "ano": 2024,
+  "fotos": [
+    "tabua-com-ardosia-1",
+    "trabalho-dom-barril-2",
+    "trabalho-dom-barril-3",
+    "trabalho-dom-barril-4"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "produtos": [
+    "tabua-com-ardosia"
+  ],
+  "destaque": false,
+  "publicado": true,
+  "ordem": 13
+}

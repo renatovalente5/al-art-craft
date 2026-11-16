@@ -1,0 +1,20 @@
+{
+  "cliente": "Lido Grill",
+  "titulo": "Prancha gravada para o novo letreiro",
+  "local": "Funchal",
+  "ano": 2026,
+  "fotos": [
+    "placa-gravada-5",
+    "trabalho-lido-grill-2",
+    "trabalho-lido-grill-3",
+    "trabalho-lido-grill-4"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "produtos": [
+    "placa-gravada"
+  ],
+  "destaque": true,
+  "publicado": true,
+  "ordem": 3
+}

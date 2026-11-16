@@ -1,0 +1,33 @@
+{
+  "nome": "Caixa de madeira com pegas",
+  "categoria": "caixas",
+  "preco": 25,
+  "desde": false,
+  "unidade": null,
+  "resumo": "Caixa de pinho com pegas recortadas.",
+  "descricao": "Para arrumar, expor ou oferecer, com a gravação que quiser.",
+  "caracteristicas": [
+    [
+      "Madeira",
+      "Pinho"
+    ],
+    [
+      "Personalização",
+      "Gravação à escolha"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "caixa-com-pegas-1",
+    "caixa-com-pegas-2",
+    "caixa-com-pegas-3",
+    "caixa-com-pegas-4",
+    "caixa-com-pegas-5"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "feitaPara": "casa-do-maibelo",
+  "destaque": false,
+  "publicado": true,
+  "ordem": 2
+}

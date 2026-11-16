@@ -1,0 +1,37 @@
+{
+  "nome": "Tábua de Acácia maciça",
+  "categoria": "tabuas-de-servir",
+  "preco": 55,
+  "desde": false,
+  "unidade": null,
+  "resumo": "Acácia com 3,8 cm de espessura e friso a toda a volta.",
+  "descricao": "A tábua mais robusta da casa, para dar impacto ao serviço em restaurantes e eventos.",
+  "caracteristicas": [
+    [
+      "Madeira",
+      "Acácia"
+    ],
+    [
+      "Espessura",
+      "3,8 cm"
+    ],
+    [
+      "Pormenores",
+      "Friso a toda a volta"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "tabua-acacia-macica-1",
+    "tabua-acacia-macica-2",
+    "tabua-acacia-macica-3",
+    "tabua-acacia-macica-4",
+    "tabua-acacia-macica-5"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "feitaPara": "retiro",
+  "destaque": true,
+  "publicado": true,
+  "ordem": 2
+}

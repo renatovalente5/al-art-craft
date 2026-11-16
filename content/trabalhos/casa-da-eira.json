@@ -1,0 +1,20 @@
+{
+  "cliente": "Casa da Eira",
+  "titulo": "Prancha rústica de 1,80 m",
+  "local": null,
+  "ano": 2026,
+  "fotos": [
+    "prancha-rustica-1",
+    "trabalho-casa-da-eira-2",
+    "prancha-rustica-3",
+    "trabalho-casa-da-eira-4"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "produtos": [
+    "prancha-rustica"
+  ],
+  "destaque": false,
+  "publicado": true,
+  "ordem": 11
+}

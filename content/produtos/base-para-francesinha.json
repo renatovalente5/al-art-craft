@@ -1,0 +1,26 @@
+{
+  "nome": "Base para francesinha",
+  "categoria": "pratos-e-bases",
+  "preco": 24,
+  "desde": false,
+  "unidade": null,
+  "resumo": "Base de madeira tropical para o prato da francesinha.",
+  "descricao": "Leva o prato quente à mesa e dá-lhe outra apresentação.",
+  "caracteristicas": [
+    [
+      "Madeira",
+      "Africana (tropical)"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "base-para-francesinha-1",
+    "base-para-francesinha-2"
+  ],
+  "video": "base-para-francesinha",
+  "videoOrigem": "DJHqH_0odTh",
+  "feitaPara": null,
+  "destaque": false,
+  "publicado": true,
+  "ordem": 3
+}

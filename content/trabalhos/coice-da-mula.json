@@ -1,0 +1,19 @@
+{
+  "cliente": "Coice da Mula",
+  "titulo": "Placa redonda com luz",
+  "local": null,
+  "ano": 2024,
+  "fotos": [
+    "placa-redonda-com-luz-1",
+    "placa-redonda-com-luz-2",
+    "placa-redonda-com-luz-3"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "produtos": [
+    "placa-redonda-com-luz"
+  ],
+  "destaque": false,
+  "publicado": true,
+  "ordem": 16
+}

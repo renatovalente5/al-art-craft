@@ -1,0 +1,39 @@
+{
+  "nome": "Bancada de catering",
+  "categoria": "catering-e-eventos",
+  "preco": 1450,
+  "desde": true,
+  "unidade": null,
+  "resumo": "Estação de serviço com tabuleiros em inox e a sua marca à frente.",
+  "descricao": "Desmonta-se sem parafusos, anda sobre rodas e personaliza-se a todos os níveis.",
+  "caracteristicas": [
+    [
+      "Tampo",
+      "Com tabuleiros GN em inox"
+    ],
+    [
+      "Frente",
+      "Logótipo em acrílico, com luz opcional"
+    ],
+    [
+      "Montagem",
+      "Sem parafusos, sobre rodas"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "bancada-de-catering-1",
+    "bancada-de-catering-2",
+    "bancada-de-catering-3",
+    "bancada-de-catering-4",
+    "bancada-de-catering-5",
+    "bancada-de-catering-6",
+    "bancada-de-catering-7"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "feitaPara": "lili-catering",
+  "destaque": true,
+  "publicado": true,
+  "ordem": 1
+}

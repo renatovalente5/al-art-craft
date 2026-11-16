@@ -1,0 +1,25 @@
+{
+  "nome": "Tábua rotativa",
+  "categoria": "tabuas-de-servir",
+  "preco": 89,
+  "desde": false,
+  "unidade": null,
+  "resumo": "Gira sobre a base, para chegar a todos à volta da mesa.",
+  "descricao": "Uma tábua de partilha, com o nome gravado.",
+  "caracteristicas": [
+    [
+      "Pormenores",
+      "Base giratória"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "tabua-rotativa-1"
+  ],
+  "video": "tabua-rotativa",
+  "videoOrigem": "DP7KQsDgLGM",
+  "feitaPara": null,
+  "destaque": false,
+  "publicado": true,
+  "ordem": 14
+}

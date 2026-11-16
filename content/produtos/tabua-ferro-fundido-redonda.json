@@ -1,0 +1,33 @@
+{
+  "nome": "Tábua medieval com chapa redonda",
+  "categoria": "ferro-fundido",
+  "preco": 89,
+  "desde": false,
+  "unidade": null,
+  "resumo": "Chapa de ferro fundido redonda, numa base de madeira com tachas.",
+  "descricao": "O ferro fundido guarda o calor, e a base leva-o à mesa com segurança, em estilo medieval.",
+  "caracteristicas": [
+    [
+      "Chapa",
+      "Ferro fundido, redonda"
+    ],
+    [
+      "Base",
+      "Madeira com tachas metálicas"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "tabua-ferro-fundido-redonda-1",
+    "tabua-ferro-fundido-redonda-2",
+    "tabua-ferro-fundido-redonda-3",
+    "tabua-ferro-fundido-redonda-4",
+    "tabua-ferro-fundido-redonda-5"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "feitaPara": null,
+  "destaque": true,
+  "publicado": true,
+  "ordem": 1
+}

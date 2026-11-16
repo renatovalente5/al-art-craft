@@ -1,0 +1,29 @@
+{
+  "nome": "Tapete de entrada com logótipo",
+  "categoria": "mesa-e-sala",
+  "preco": 59,
+  "desde": true,
+  "unidade": null,
+  "resumo": "Tapete por medida com o logótipo ou o nome.",
+  "descricao": "Para a entrada da casa ou do negócio, e segura bem a sujidade.",
+  "caracteristicas": [
+    [
+      "Medida",
+      "Por medida"
+    ],
+    [
+      "Personalização",
+      "Logótipo ou nome"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "tapete-de-entrada-1"
+  ],
+  "video": "tapete-de-entrada",
+  "videoOrigem": "DZVfSb6ig-r",
+  "feitaPara": "sal-e-brasa",
+  "destaque": false,
+  "publicado": true,
+  "ordem": 8
+}

@@ -1,0 +1,37 @@
+{
+  "nome": "Tábua com pegas metálicas",
+  "categoria": "tabuas-de-servir",
+  "preco": 69,
+  "desde": false,
+  "unidade": null,
+  "resumo": "Madeira tropical com pegas em metal nas pontas.",
+  "descricao": "As pegas em metal tornam fácil levantar a tábua da mesa, mesmo cheia.",
+  "caracteristicas": [
+    [
+      "Madeira",
+      "Tropical"
+    ],
+    [
+      "Pegas",
+      "Metálicas, laterais"
+    ],
+    [
+      "Pormenores",
+      "Friso a toda a volta"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "tabua-com-pegas-metalicas-1",
+    "tabua-com-pegas-metalicas-2",
+    "tabua-com-pegas-metalicas-3",
+    "tabua-com-pegas-metalicas-4",
+    "tabua-com-pegas-metalicas-5"
+  ],
+  "video": null,
+  "videoOrigem": null,
+  "feitaPara": null,
+  "destaque": false,
+  "publicado": true,
+  "ordem": 4
+}

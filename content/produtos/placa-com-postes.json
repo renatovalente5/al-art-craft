@@ -1,0 +1,30 @@
+{
+  "nome": "Placa com postes",
+  "categoria": "placas-e-letreiros",
+  "preco": 590,
+  "desde": true,
+  "unidade": null,
+  "resumo": "Duas pranchas maciças apoiadas em postes de madeira tratada.",
+  "descricao": "Pronta para o tempo, para a entrada de quintas e tabernas.",
+  "caracteristicas": [
+    [
+      "Pranchas",
+      "2 m e 1,40 m, com 35 × 5 cm"
+    ],
+    [
+      "Postes",
+      "Madeira tratada"
+    ]
+  ],
+  "opcoes": [],
+  "fotos": [
+    "placa-com-postes-1",
+    "placa-com-postes-2"
+  ],
+  "video": "placa-com-postes",
+  "videoOrigem": "DRcFDY6CPkL",
+  "feitaPara": "taberna-santiago",
+  "destaque": false,
+  "publicado": true,
+  "ordem": 3
+}
