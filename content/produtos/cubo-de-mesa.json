@@ -18,6 +18,7 @@
   ],
   "opcoes": [],
   "fotos": [
+    "cubo-de-mesa-recorte",
     "cubo-de-mesa-1",
     "cubo-de-mesa-2",
     "cubo-de-mesa-3",
@@ -26,7 +27,7 @@
   "video": null,
   "videoOrigem": null,
   "feitaPara": "castelo",
-  "destaque": true,
+  "destaque": false,
   "publicado": true,
   "ordem": 4
 }

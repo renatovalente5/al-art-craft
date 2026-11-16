@@ -10,11 +10,11 @@ const NAV = [
 ];
 
 const LEGAIS = [
-  ['Termos e condições', '/termos-e-condicoes/'],
+  ['Termos', '/termos-e-condicoes/'],
   ['Privacidade', '/politica-de-privacidade/'],
-  ['Litígios', '/resolucao-de-litigios/'],
   ['Garantia', '/garantia/'],
-  ['Desistir de uma compra', '/desistir/'],
+  ['Litígios', '/resolucao-de-litigios/'],
+  ['Desistir', '/desistir/'],
 ];
 
 /**
@@ -77,17 +77,14 @@ ${jsonld}
 ${p.corpo}
 </main>
 <footer class="rodape">
-  <div class="rodape__marca">
-    <a href="${href(ctx, '/')}" aria-label="AL Art Craft — início">${logo(ctx, 64, 'rodape__logo')}</a>
-    <p class="rodape__frase">${esc(site.frase)}</p>
-    <div class="rodape__redes">
-      <a class="redondo" href="https://www.instagram.com/${esc(site.instagram)}/" target="_blank" rel="noopener" aria-label="Instagram">${I.ig}</a>
-      <a class="redondo" href="${whatsapp(site, 'Olá Alberto!')}" target="_blank" rel="noopener" aria-label="WhatsApp">${I.wa}</a>
-    </div>
+  <a class="rodape__logo" href="${href(ctx, '/')}" aria-label="AL Art Craft — início">${logo(ctx, 72, 'rodape__marca')}</a>
+  <nav class="rodape__nav" aria-label="Rodapé">${NAV.map(([, t, c]) => `<a href="${href(ctx, c)}">${t}</a>`).join('')}<a href="${href(ctx, '/perguntas-frequentes/')}">Perguntas</a></nav>
+  <div class="rodape__redes">
+    <a class="redondo" href="https://www.instagram.com/${esc(site.instagram)}/" target="_blank" rel="noopener" aria-label="Instagram">${I.ig}</a>
+    <a class="redondo" href="${whatsapp(site, 'Olá Alberto!')}" target="_blank" rel="noopener" aria-label="WhatsApp">${I.wa}</a>
   </div>
-  <nav class="rodape__nav" aria-label="Rodapé">${NAV.map(([, t, c]) => `<a href="${href(ctx, c)}">${t}</a>`).join('')}<a href="${href(ctx, '/perguntas-frequentes/')}">Perguntas frequentes</a></nav>
   <div class="rodape__fim">
-    <span>© ${ctx.ano} ${esc(site.marca)}</span>
+    <span class="rodape__copia">© ${ctx.ano} ${esc(site.marca)}</span>
     <span class="rodape__legais">${LEGAIS.map(([t, c]) => `<a href="${href(ctx, c)}">${t}</a>`).join('')}${livroReclamacoes({ classe: 'lr-discreto' })}</span>
   </div>
 </footer>

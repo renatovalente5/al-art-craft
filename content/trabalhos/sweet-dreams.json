@@ -17,7 +17,7 @@
     "bancada-de-catering",
     "caixa-lacada"
   ],
-  "destaque": true,
+  "destaque": false,
   "publicado": true,
   "ordem": 6
 }

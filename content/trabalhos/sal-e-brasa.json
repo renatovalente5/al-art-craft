@@ -19,7 +19,7 @@
     "prato-de-madeira",
     "tapete-de-entrada"
   ],
-  "destaque": true,
+  "destaque": false,
   "publicado": true,
   "ordem": 4
 }

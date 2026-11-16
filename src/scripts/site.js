@@ -23,7 +23,7 @@
   }
 
   // ── Vídeos: tocam só quando se veem (e nunca com «reduzir movimento») ─────────────────────────────
-  const videos = [...document.querySelectorAll('video[data-video]')];
+  const videos = [...document.querySelectorAll('video[data-video]:not(.carrossel__video)')];
   if (reduzir) {
     videos.forEach((v) => { v.removeAttribute('autoplay'); v.pause(); });
   } else if (videos.length) {
@@ -33,6 +33,55 @@
     }, { threshold: 0.15 });
     videos.forEach((v) => io.observe(v));
     addEventListener('resize', () => videos.forEach((v) => { const r = v.getBoundingClientRect(); if (r.bottom > 0 && r.top < innerHeight) tocar(v); }), { passive: true });
+  }
+
+  // ── O carrossel da capa: três à vista; só o do meio toca; passa sozinho a cada 8 s se ninguém lhe mexer ──
+  const car = document.querySelector('[data-carrossel]');
+  if (car) {
+    const itens = [...car.querySelectorAll('.carrossel__item')];
+    const n = itens.length;
+    const conta = car.querySelector('[data-conta]');
+    let atual = 0, relogio = null, parado = false, fora = false, arrastou = false;
+    const lugar = (i) => {
+      const d = (i - atual + n) % n;
+      if (d === 0) return 'atual';
+      if (d === 1) return 'seguinte';
+      if (d === n - 1) return 'anterior';
+      return d <= n / 2 ? 'fora-dir' : 'fora-esq';
+    };
+    const mostrar = () => {
+      itens.forEach((li, i) => {
+        li.dataset.pos = lugar(i);
+        const v = li.querySelector('video');
+        if (!v) return;
+        if (li.dataset.pos === 'atual' && !reduzir && !fora) { if (v.preload === 'none') v.preload = 'auto'; v.play().catch(() => {}); }
+        else v.pause();
+        if ((li.dataset.pos === 'anterior' || li.dataset.pos === 'seguinte') && v.preload === 'none') v.preload = 'metadata';
+      });
+      if (conta) conta.textContent = String(atual + 1);
+    };
+    const andar = () => { clearInterval(relogio); if (!reduzir) relogio = setInterval(() => { if (!parado && !fora && !document.hidden) ir(1); }, 8000); };
+    const ir = (passo) => { atual = (atual + passo + n) % n; mostrar(); };
+    const mexer = (passo) => { ir(passo); andar(); };
+    car.querySelectorAll('[data-passo]').forEach((b) => b.addEventListener('click', () => mexer(Number(b.dataset.passo))));
+    itens.forEach((li) => li.addEventListener('click', () => {
+      if (arrastou) { arrastou = false; return; }
+      if (li.dataset.pos === 'anterior') mexer(-1); else if (li.dataset.pos === 'seguinte') mexer(1);
+    }));
+    let x0 = null;
+    car.addEventListener('pointerdown', (e) => { x0 = e.clientX; arrastou = false; }, { passive: true });
+    car.addEventListener('pointerup', (e) => {
+      if (x0 == null) return;
+      const dx = e.clientX - x0; x0 = null;
+      if (Math.abs(dx) > 40) { arrastou = true; mexer(dx < 0 ? 1 : -1); }
+    }, { passive: true });
+    car.addEventListener('mouseenter', () => { parado = true; });
+    car.addEventListener('mouseleave', () => { parado = false; });
+    car.addEventListener('focusin', () => { parado = true; });
+    car.addEventListener('focusout', () => { parado = false; });
+    new IntersectionObserver(([e]) => { fora = !e.isIntersecting; mostrar(); }, { threshold: 0.2 }).observe(car);
+    mostrar();
+    andar();
   }
 
   // ── Separadores das categorias: são páginas, mas a fila fica no mesmo sítio do ecrã ───────────────

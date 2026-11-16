@@ -6,9 +6,13 @@ com o logótipo do cliente, para restaurantes, catering, quintas de eventos e ca
 **Não há pagamentos no site.** Na ficha de cada produto escolhe-se a quantidade (e as escolhas, quando há) e escreve-se
 as medidas ou a gravação; «Encomendar pelo WhatsApp» abre a conversa com o Alberto com a encomenda já escrita.
 
-- **Desenho:** a proposta A «Bancada», escolhida pelo Renato a 16 nov 2026 (capa com três vídeos lado a lado no
-  computador e um no telemóvel; categorias com o nome por baixo). Letras Playfair Display + DM Sans; cores do
-  logótipo (areia #D4B093, traço #141313).
+- **Desenho:** a proposta A «Bancada», escolhida pelo Renato a 16 nov 2026, e depois (no mesmo dia) a capa ao centro
+  com um carrossel de 6 vídeos e o rodapé ao centro, a pedido dele, à maneira da BE!Creative (mas com as letras e as
+  cores da AL: Playfair Display + DM Sans; areia #D4B093, traço #141313).
+- **As peças recortadas:** quase todos os produtos têm como 1.ª fotografia um recorte (`media/fotos/<slug>-recorte.png`,
+  a peça sem o fundo, feito com o Vision do Mac: `~/Websites/_ferramentas/recortar-motivo`), pousado no mesmo fundo
+  de areia — as fotografias do Instagram tinham fundos de todas as cores. Sem recorte, a fotografia entra emoldurada
+  no mesmo fundo.
 - **Pré-visualização:** GitHub Pages (`.github/workflows/publicar.yml`), com noindex em todas as páginas.
 - **Painel (backoffice):** `~/Websites/al-art-craft-painel`.
 

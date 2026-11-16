@@ -22,6 +22,7 @@
   ],
   "opcoes": [],
   "fotos": [
+    "tabua-madeira-africana-recorte",
     "tabua-madeira-africana-1",
     "tabua-madeira-africana-2",
     "tabua-madeira-africana-3",
@@ -32,7 +33,7 @@
   "video": null,
   "videoOrigem": null,
   "feitaPara": "grill-alfena",
-  "destaque": true,
+  "destaque": false,
   "publicado": true,
   "ordem": 3
 }

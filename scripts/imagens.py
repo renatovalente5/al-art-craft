@@ -3,6 +3,8 @@
 
 Lê:
   media/fotos/*.jpg      as fotografias (cada uma tem de estar em content/fotos.json)
+  media/fotos/*.png      os recortes (a peça sem o fundo, com transparência): AVIF e WebP guardam o alfa; o JPEG
+                         e o cartão de partilha pousam-na no fundo de areia do site
   media/videos/*.jpg     a imagem de capa de cada vídeo
   media/marca/logo.png   o logótipo do Alberto, com o fundo branco tirado (sem redesenhar)
 
@@ -27,7 +29,8 @@ LARGURAS = [360, 540, 720, 960, 1280, 1600]
 FORMATOS = ('avif', 'webp') if features.check('avif') else ('webp',)
 QUALIDADE = {'avif': 52, 'webp': 78}
 PARTILHA = (1200, 630)
-VERSAO = f'v1-{LARGURAS}-{QUALIDADE}-{PARTILHA}'
+AREIA = (243, 236, 227)          # --areia-clara do site: o fundo dos cartões, onde pousam os recortes
+VERSAO = f'v1-{LARGURAS}-{QUALIDADE}-{PARTILHA}'   # as fotografias não mudaram de tratamento: o mesmo resumo
 
 
 def resumo(caminho, extra=''):
@@ -64,21 +67,36 @@ def versoes(nome, origem):
     feito = [os.path.join(CACHE, f'{nome}-{h}-{w}.{fmt}') for w in larguras for fmt in FORMATOS]
     feito += [os.path.join(CACHE, f'{nome}-{h}-{jw}.jpg'), os.path.join(CACHE, f'{nome}-{h}-partilha.jpg')]
     if all(os.path.exists(f) for f in feito):
-        return {'w': W, 'h': H, 'resumo': h, 'larguras': larguras, 'formatos': list(FORMATOS), 'jpg': jw}
-    im = ImageOps.exif_transpose(Image.open(origem)).convert('RGB')
+        return {'w': W, 'h': H, 'resumo': h, 'larguras': larguras, 'formatos': list(FORMATOS), 'jpg': jw, 'alfa': origem.endswith('.png')}
+    im = ImageOps.exif_transpose(Image.open(origem))
+    alfa = im.mode in ('RGBA', 'LA') or (im.mode == 'P' and 'transparency' in im.info)
+    im = im.convert('RGBA' if alfa else 'RGB')
+    def pousado(i):
+        if not alfa: return i
+        f = Image.new('RGB', i.size, AREIA); f.paste(i, (0, 0), i); return f
     for w in larguras:
         r = im if w == W else im.resize((w, round(H * w / W)), Image.LANCZOS)
         for fmt in FORMATOS:
             guardar(r, os.path.join(CACHE, f'{nome}-{h}-{w}.{fmt}'), fmt)
-    guardar(im if jw == W else im.resize((jw, round(H * jw / W)), Image.LANCZOS),
+    guardar(pousado(im if jw == W else im.resize((jw, round(H * jw / W)), Image.LANCZOS)),
             os.path.join(CACHE, f'{nome}-{h}-{jw}.jpg'), 'jpg')
-    # cartão de partilha 1200×630 (recorte ao centro)
     pw, ph = PARTILHA
-    esc = max(pw / W, ph / H)
-    r = im.resize((round(W * esc), round(H * esc)), Image.LANCZOS)
-    x, y = (r.width - pw) // 2, (r.height - ph) // 2
-    guardar(r.crop((x, y, x + pw, y + ph)), os.path.join(CACHE, f'{nome}-{h}-partilha.jpg'), 'jpg')
-    return {'w': W, 'h': H, 'resumo': h, 'larguras': larguras, 'formatos': list(FORMATOS), 'jpg': jw}
+    if alfa:
+        # o recorte inteiro, ao centro de um cartão de areia (cortar ao centro cortava a peça)
+        caixa = im.getchannel('A').getbbox() or (0, 0, W, H)
+        peca = im.crop(caixa)
+        esc = min(pw * 0.8 / peca.width, ph * 0.82 / peca.height)
+        peca = peca.resize((round(peca.width * esc), round(peca.height * esc)), Image.LANCZOS)
+        cartao = Image.new('RGB', PARTILHA, AREIA)
+        cartao.paste(peca, ((pw - peca.width) // 2, (ph - peca.height) // 2), peca)
+        guardar(cartao, os.path.join(CACHE, f'{nome}-{h}-partilha.jpg'), 'jpg')
+    else:
+        # cartão de partilha 1200×630 (recorte ao centro)
+        esc = max(pw / W, ph / H)
+        r = im.resize((round(W * esc), round(H * esc)), Image.LANCZOS)
+        x, y = (r.width - pw) // 2, (r.height - ph) // 2
+        guardar(r.crop((x, y, x + pw, y + ph)), os.path.join(CACHE, f'{nome}-{h}-partilha.jpg'), 'jpg')
+    return {'w': W, 'h': H, 'resumo': h, 'larguras': larguras, 'formatos': list(FORMATOS), 'jpg': jw, 'alfa': alfa}
 
 
 def logotipo():
@@ -109,7 +127,12 @@ def logotipo():
 
 def main():
     indice = json.load(open(INDICE))
-    fotos = {os.path.splitext(os.path.basename(f))[0]: f for f in glob.glob(os.path.join(FOTOS, '*.jpg'))}
+    fotos = {}
+    for f in sorted(glob.glob(os.path.join(FOTOS, '*.jpg')) + glob.glob(os.path.join(FOTOS, '*.png'))):
+        nome = os.path.splitext(os.path.basename(f))[0]
+        if nome in fotos:
+            print(f'Duas fotografias com o mesmo nome: {nome} (.jpg e .png)'); sys.exit(1)
+        fotos[nome] = f
     sem_indice = sorted(set(fotos) - set(indice))
     sem_ficheiro = sorted(set(indice) - set(fotos))
     if sem_indice or sem_ficheiro:

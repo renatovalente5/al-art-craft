@@ -28,9 +28,10 @@ teste('regras: dados da loja', () => igual(R.regrasSite(site).length, 0));
 teste('regras: categorias', () => igual(R.regrasCategorias(categorias, fotos).length, 0));
 for (const [s, d] of Object.entries(produtos)) teste(`regras: produto ${s}`, () => igual(JSON.stringify(R.regrasProduto(s, d, { fotos, videos, trabalhos })), '[]'));
 for (const [s, d] of Object.entries(trabalhos)) teste(`regras: trabalho ${s}`, () => igual(JSON.stringify(R.regrasTrabalho(s, d, { fotos, videos, produtos })), '[]'));
-teste('regras: página inicial', () => igual(JSON.stringify(R.regrasInicio(inicio, { fotos, videos })), '[]'));
+teste('regras: página inicial', () => igual(JSON.stringify(R.regrasInicio(inicio, { videos })), '[]'));
+teste('regras: destaques', () => igual(JSON.stringify(R.regrasDestaques(produtos, trabalhos)), '[]'));
 teste('cada fotografia está em uso ou na biblioteca com descrição', () => igual(R.regrasFotos(fotos).length, 0));
-teste('no máximo 8 produtos em destaque (a página inicial mostra 8)', () => sim(Object.values(produtos).filter((p) => p.destaque && p.publicado).length <= 8, 'mais de 8'));
+teste('no máximo 4 produtos e 3 trabalhos em destaque', () => { sim(Object.values(produtos).filter((p) => p.destaque && p.publicado).length <= 4, 'produtos'); sim(Object.values(trabalhos).filter((t) => t.destaque && t.publicado).length <= 3, 'trabalhos'); });
 
 // as regras recusam o que devem recusar
 teste('regras: preço anunciado obtenível (uma escolha tem de ter um valor a 0 €)', () => {

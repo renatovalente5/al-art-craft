@@ -10,7 +10,9 @@ export const LIMITES = {
   nomeProduto: 70, resumo: 140, descricao: 420, rotulo: 30, valor: 90, caracteristicas: 8, fotosProduto: 12,
   opcoes: 3, valoresOpcao: 8, nomeOpcao: 30, nomeValor: 40,
   cliente: 60, tituloTrabalho: 90, local: 60, fotosTrabalho: 16,
-  tituloCapa: 80, textoCapa: 230, tituloPasso: 40, textoPasso: 140, tituloConvite: 60, textoConvite: 200,
+  etiquetaCapa: 40, tituloCapa: 50, destaqueCapa: 40, textoCapa: 230, videosCapaMin: 3, videosCapaMax: 6,
+  tituloPasso: 40, textoPasso: 140, tituloConvite: 60, textoConvite: 200,
+  destaquesProdutos: 4, destaquesTrabalhos: 3,
   alt: 150, precoMax: 100000,
 };
 
@@ -168,13 +170,15 @@ export function regrasTrabalho(slug, d, { fotos = null, videos = null, produtos 
   return p;
 }
 
-export function regrasInicio(d, { fotos = null, videos = null } = {}) {
+export function regrasInicio(d, { videos = null } = {}) {
   const p = [];
   const c = d?.capa ?? {};
+  campoTexto(p, 'capa.etiqueta', c.etiqueta, { max: LIMITES.etiquetaCapa, obrigatorio: false });
   campoTexto(p, 'capa.titulo', c.titulo, { max: LIMITES.tituloCapa });
+  campoTexto(p, 'capa.tituloDestaque', c.tituloDestaque, { max: LIMITES.destaqueCapa, obrigatorio: false });
   campoTexto(p, 'capa.texto', c.texto, { max: LIMITES.textoCapa });
   const vs = c.videos;
-  if (!Array.isArray(vs) || vs.length < 1 || vs.length > 3) p.push({ campo: 'capa.videos', msg: 'A capa tem de 1 a 3 vídeos.' });
+  if (!Array.isArray(vs) || vs.length < LIMITES.videosCapaMin || vs.length > LIMITES.videosCapaMax) p.push({ campo: 'capa.videos', msg: `A capa tem de ${LIMITES.videosCapaMin} a ${LIMITES.videosCapaMax} vídeos.` });
   else {
     if (new Set(vs).size !== vs.length) p.push({ campo: 'capa.videos', msg: 'Há vídeos repetidos na capa.' });
     if (videos) vs.forEach((v) => { if (!videos.includes(v)) p.push({ campo: 'capa.videos', msg: `O vídeo «${v}» não existe.` }); });
@@ -184,12 +188,19 @@ export function regrasInicio(d, { fotos = null, videos = null } = {}) {
   else passos.forEach((s, i) => {
     campoTexto(p, `processo.${i}.titulo`, s.titulo, { max: LIMITES.tituloPasso });
     campoTexto(p, `processo.${i}.texto`, s.texto, { max: LIMITES.textoPasso });
-    if (!s.foto && !s.video) p.push({ campo: `processo.${i}`, msg: 'Ponha uma fotografia ou um vídeo.' });
-    if (s.foto && fotos && !fotos[s.foto]) p.push({ campo: `processo.${i}.foto`, msg: 'A fotografia não está na biblioteca.' });
-    if (s.video && videos && !videos.includes(s.video)) p.push({ campo: `processo.${i}.video`, msg: 'O vídeo não existe.' });
   });
   campoTexto(p, 'convite.titulo', d?.convite?.titulo, { max: LIMITES.tituloConvite });
   campoTexto(p, 'convite.texto', d?.convite?.texto, { max: LIMITES.textoConvite });
+  return p;
+}
+
+/** A página inicial mostra no máximo 4 produtos e 3 trabalhos em destaque. */
+export function regrasDestaques(produtos, trabalhos) {
+  const p = [];
+  const np = Object.values(produtos ?? {}).filter((x) => x.destaque && x.publicado).length;
+  const nt = Object.values(trabalhos ?? {}).filter((x) => x.destaque && x.publicado).length;
+  if (np > LIMITES.destaquesProdutos) p.push({ campo: 'destaque', msg: `Há ${np} produtos em destaque; a página inicial mostra ${LIMITES.destaquesProdutos}.` });
+  if (nt > LIMITES.destaquesTrabalhos) p.push({ campo: 'destaque', msg: `Há ${nt} trabalhos em destaque; a página inicial mostra ${LIMITES.destaquesTrabalhos}.` });
   return p;
 }
 

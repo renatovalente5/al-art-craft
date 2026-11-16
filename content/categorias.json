@@ -3,49 +3,49 @@
     "slug": "tabuas-de-servir",
     "nome": "Tábuas de servir",
     "frase": "Para carne, petiscos e tapas, com friso, pegas e o seu logótipo.",
-    "foto": "tabua-de-cumaru-1",
+    "foto": "tabua-de-cumaru-recorte",
     "ordem": 1
   },
   {
     "slug": "ferro-fundido",
     "nome": "Ferro fundido",
     "frase": "Madeira e ferro fundido para a comida chegar quente à mesa.",
-    "foto": "tabua-ferro-fundido-retangular-1",
+    "foto": "tabua-ferro-fundido-retangular-recorte",
     "ordem": 2
   },
   {
     "slug": "pratos-e-bases",
     "nome": "Pratos e bases",
     "frase": "Pratos, bases e suportes para servir com a marca da casa.",
-    "foto": "base-gravada-1",
+    "foto": "prato-de-madeira-recorte",
     "ordem": 3
   },
   {
     "slug": "mesa-e-sala",
     "nome": "Mesa e sala",
     "frase": "Menus, contas, números de mesa e reservados.",
-    "foto": "reservado-de-mesa-1",
+    "foto": "reservado-de-mesa-recorte",
     "ordem": 4
   },
   {
     "slug": "caixas",
     "nome": "Caixas",
     "frase": "Caixas de madeira para pão, arrumação e presentes.",
-    "foto": "caixa-com-pegas-1",
+    "foto": "caixa-para-pao-recorte",
     "ordem": 5
   },
   {
     "slug": "placas-e-letreiros",
     "nome": "Placas e letreiros",
     "frase": "Placas gravadas e néons para fachadas, jardins e quintas.",
-    "foto": "prancha-rustica-1",
+    "foto": "prancha-rustica-recorte",
     "ordem": 6
   },
   {
     "slug": "catering-e-eventos",
     "nome": "Catering e eventos",
     "frase": "Bancadas, carrinhos e peças para servir em eventos.",
-    "foto": "bancada-de-catering-1",
+    "foto": "carrinho-de-catering-recorte",
     "ordem": 7
   }
 ]

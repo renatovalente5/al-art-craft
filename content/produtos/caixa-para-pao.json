@@ -18,6 +18,7 @@
   ],
   "opcoes": [],
   "fotos": [
+    "caixa-para-pao-recorte",
     "caixa-para-pao-1",
     "caixa-para-pao-2",
     "caixa-para-pao-3",
@@ -27,7 +28,7 @@
   "video": null,
   "videoOrigem": null,
   "feitaPara": "colina-do-sol",
-  "destaque": true,
+  "destaque": false,
   "publicado": true,
   "ordem": 1
 }

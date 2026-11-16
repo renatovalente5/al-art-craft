@@ -7,7 +7,7 @@ const plural = (n, um, varios) => `${n} ${n === 1 ? um : varios}`;
 
 /** O cartão de um produto: o cartão inteiro leva à ficha; a mesma seta em todos (não compra). */
 export function cartao(ctx, p, { sizes = '(min-width: 1024px) 290px, (min-width: 720px) 23vw, 46vw' } = {}) {
-  return `<li class="cartao"><a class="cartao__ligacao" href="${href(ctx, `/produto/${p.slug}/`)}">${foto(ctx, p.fotos[0], { sizes, classe: 'cartao__foto', alt: '' })}<span class="cartao__corpo"><span class="cartao__nome">${esc(p.nome)}</span><span class="cartao__linha"><span class="cartao__preco">${precoHtml(p)}</span><span class="cartao__seta">${I.seta}</span></span></span></a></li>`;
+  return `<li class="cartao"><a class="cartao__ligacao" href="${href(ctx, `/produto/${p.slug}/`)}">${foto(ctx, p.fotos[0], { sizes, classe: `cartao__foto${ctx.recorte(p.fotos[0]) ? ' e-recorte' : ''}`, alt: '' })}<span class="cartao__corpo"><span class="cartao__nome">${esc(p.nome)}</span><span class="cartao__linha"><span class="cartao__preco">${precoHtml(p)}</span><span class="cartao__seta">${I.seta}</span></span></span></a></li>`;
 }
 
 function trabalhoCartao(ctx, t, sizes = '(min-width: 1024px) 400px, (min-width: 720px) 46vw, 92vw') {
@@ -27,38 +27,50 @@ export function jsonMigalhas(ctx, itens) {
 }
 
 // ── Início ─────────────────────────────────────────────────────────────────────────────────────────
+// A capa ao centro (o fio, a etiqueta, o título com a linha em itálico, os dois botões) e por baixo um carrossel de
+// vídeos: três à vista, o do meio maior e a tocar, os dos lados parados e desencontrados.
 export function inicio(ctx) {
   const { site, conteudo: c } = ctx;
   const capa = c.inicio.capa;
-  const destaques = ctx.produtos.filter((p) => p.destaque).slice(0, 8);
-  const trabalhos = ctx.trabalhos.filter((t) => t.destaque).slice(0, 6);
-  const videos = capa.videos.map((v, i) => video(ctx, v, { classe: 'capa__video', capa: i === 0 })).join('');
+  const destaques = ctx.produtos.filter((p) => p.destaque).slice(0, 4);
+  const trabalhos = ctx.trabalhos.filter((t) => t.destaque).slice(0, 3);
+  const n = capa.videos.length;
+  const itens = capa.videos.map((v, i) => `<li class="carrossel__item" data-i="${i}"${i === 0 ? ' data-pos="atual"' : i === 1 ? ' data-pos="seguinte"' : i === n - 1 ? ' data-pos="anterior"' : ''}>${video(ctx, v, { classe: 'carrossel__video', capa: i === 0 })}</li>`).join('');
   const corpo = `
-<section class="capa capa--${capa.videos.length}">
-  <div class="capa__videos">${videos}</div>
-  <div class="capa__texto">
-    <h1 class="capa__titulo">${esc(capa.titulo)}</h1>
+<section class="capa" aria-labelledby="t-capa">
+  <div class="capa__cabeca">
+    <span class="fio-v" aria-hidden="true"></span>
+    ${capa.etiqueta ? `<p class="capa__etiqueta">${esc(capa.etiqueta)}</p>` : ''}
+    <h1 class="capa__titulo" id="t-capa">${esc(capa.titulo)}${capa.tituloDestaque ? ` <span class="capa__destaque">${esc(capa.tituloDestaque)}</span>` : ''}</h1>
     <p class="capa__sub">${esc(capa.texto)}</p>
     <div class="capa__botoes">
-      <a class="botao botao--claro" href="${href(ctx, '/produtos/')}">Ver produtos</a>
-      <a class="botao botao--vidro" href="${whatsapp(site, 'Olá Alberto! Gostava de pedir um orçamento.')}" target="_blank" rel="noopener">${I.wa}<span>Pedir orçamento</span></a>
+      <a class="botao botao--escuro" href="${href(ctx, '/produtos/')}">Ver produtos</a>
+      <a class="botao botao--linha" href="${whatsapp(site, 'Olá Alberto! Gostava de pedir um orçamento.')}" target="_blank" rel="noopener">${I.wa}<span>Pedir orçamento</span></a>
+    </div>
+  </div>
+  <div class="carrossel" data-carrossel aria-roledescription="carrossel" aria-label="Vídeos da oficina">
+    <ul class="carrossel__lista">${itens}</ul>
+    <div class="carrossel__controlos">
+      <button class="carrossel__seta" type="button" data-passo="-1" aria-label="Vídeo anterior">${I.voltar}</button>
+      <span class="carrossel__conta" aria-live="polite"><span data-conta>1</span> de ${n}</span>
+      <button class="carrossel__seta" type="button" data-passo="1" aria-label="Vídeo seguinte">${I.seta}</button>
     </div>
   </div>
 </section>
 
 <section class="secao" aria-labelledby="t-produtos">
   <div class="secao__cabeca"><h2 id="t-produtos">Produtos</h2><a class="mais" href="${href(ctx, '/produtos/')}">Ver todos ${I.seta}</a></div>
-  <ul class="categorias">${ctx.categorias.map((k) => `<li><a class="categoria" href="${href(ctx, `/produtos/${k.slug}/`)}">${foto(ctx, k.foto, { sizes: '(min-width: 1024px) 170px, (min-width: 720px) 23vw, 46vw', classe: 'categoria__foto', alt: '' })}<span class="categoria__nome">${esc(k.nome)}</span><span class="categoria__n">${plural(k.n, 'produto', 'produtos')}</span></a></li>`).join('')}</ul>
+  <ul class="categorias">${ctx.categorias.map((k) => `<li><a class="categoria" href="${href(ctx, `/produtos/${k.slug}/`)}">${foto(ctx, k.foto, { sizes: '(min-width: 1024px) 170px, (min-width: 720px) 23vw, 46vw', classe: `categoria__foto${ctx.recorte(k.foto) ? ' e-recorte' : ''}`, alt: '' })}<span class="categoria__nome">${esc(k.nome)}</span><span class="categoria__n">${plural(k.n, 'produto', 'produtos')}</span></a></li>`).join('')}</ul>
 </section>
 
 ${destaques.length ? `<section class="secao" aria-labelledby="t-destaques">
   <div class="secao__cabeca"><h2 id="t-destaques">Os mais pedidos</h2></div>
-  <ul class="grelha">${destaques.map((p) => cartao(ctx, p)).join('')}</ul>
+  <ul class="grelha grelha--4">${destaques.map((p) => cartao(ctx, p)).join('')}</ul>
 </section>` : ''}
 
-<section class="secao processo" aria-labelledby="t-processo">
+<section class="secao" aria-labelledby="t-processo">
   <div class="secao__cabeca"><h2 id="t-processo">Como trabalho</h2><a class="mais" href="${href(ctx, '/sobre/')}">Sobre ${I.seta}</a></div>
-  <ol class="processo__lista">${c.inicio.processo.map((s, i) => `<li class="processo__passo">${s.video ? `<div class="processo__foto">${video(ctx, s.video, { classe: 'processo__video' })}</div>` : foto(ctx, s.foto, { sizes: '(min-width: 1024px) 390px, (min-width: 720px) 31vw, 92vw', classe: 'processo__foto' })}<span class="processo__n" aria-hidden="true">${i + 1}</span><h3>${esc(s.titulo)}</h3><p>${esc(s.texto)}</p></li>`).join('')}</ol>
+  <ol class="passos">${c.inicio.processo.map((s, i) => `<li class="passo"><span class="passo__n" aria-hidden="true">0${i + 1}</span><h3>${esc(s.titulo)}</h3><p>${esc(s.texto)}</p></li>`).join('')}</ol>
 </section>
 
 ${trabalhos.length ? `<section class="secao" aria-labelledby="t-trabalhos">
@@ -67,6 +79,7 @@ ${trabalhos.length ? `<section class="secao" aria-labelledby="t-trabalhos">
 </section>` : ''}
 
 <section class="convite" aria-labelledby="t-convite">
+  <span class="fio-v" aria-hidden="true"></span>
   <h2 id="t-convite">${esc(c.inicio.convite.titulo)}</h2>
   <p>${esc(c.inicio.convite.texto)}</p>
   <a class="botao botao--escuro botao--grande" href="${whatsapp(site, 'Olá Alberto! Tenho uma ideia:')}" target="_blank" rel="noopener">${I.wa}<span>Falar com o Alberto</span></a>
@@ -118,7 +131,7 @@ export function produto(ctx, p) {
   const { site } = ctx;
   const cat = ctx.categoriasPorSlug[p.categoria];
   const feita = p.feitaPara ? ctx.trabalhosPorSlug[p.feitaPara] : null;
-  const slides = p.fotos.map((f, i) => `<li class="galeria__slide" id="${p.slug}-${i + 1}">${foto(ctx, f, { sizes: '(min-width: 1024px) 640px, (min-width: 720px) 52vw, 100vw', eager: i === 0, prioridade: i === 0 })}</li>`);
+  const slides = p.fotos.map((f, i) => `<li class="galeria__slide${ctx.recorte(f) ? ' e-recorte' : ''}" id="${p.slug}-${i + 1}">${foto(ctx, f, { sizes: '(min-width: 1024px) 640px, (min-width: 720px) 52vw, 100vw', eager: i === 0, prioridade: i === 0 })}</li>`);
   if (p.video) slides.splice(Math.min(1, slides.length), 0, `<li class="galeria__slide galeria__slide--video" id="${p.slug}-video">${video(ctx, p.video, { classe: 'galeria__video', rotulo: `Vídeo: ${p.nome}` })}</li>`);
   const miniaturas = p.fotos.map((f, i) => ({ alvo: `${p.slug}-${i + 1}`, html: foto(ctx, f, { sizes: '72px', alt: '' }) }));
   if (p.video) miniaturas.splice(Math.min(1, miniaturas.length), 0, { alvo: `${p.slug}-video`, html: `${foto(ctx, `video:${p.video}`, { sizes: '72px', alt: '' })}<span class="galeria__play">${I.play}</span>`, rotulo: 'Ver o vídeo' });

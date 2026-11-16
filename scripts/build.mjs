@@ -55,7 +55,8 @@ juntar('Dados da loja', R.regrasSite(site));
 juntar('Categorias', R.regrasCategorias(categoriasBrutas, fotos));
 for (const [s, d] of Object.entries(produtosBrutos)) juntar(`Produto «${d.nome ?? s}»`, R.regrasProduto(s, d, { fotos, videos: videosLista, trabalhos: trabalhosBrutos }));
 for (const [s, d] of Object.entries(trabalhosBrutos)) juntar(`Trabalho «${d.titulo ?? s}»`, R.regrasTrabalho(s, d, { fotos, videos: videosLista, produtos: produtosBrutos }));
-juntar('Página inicial', R.regrasInicio(inicio, { fotos, videos: videosLista }));
+juntar('Página inicial', R.regrasInicio(inicio, { videos: videosLista }));
+juntar('Destaques', R.regrasDestaques(produtosBrutos, trabalhosBrutos));
 juntar('Fotografias', R.regrasFotos(fotos));
 for (const s of Object.keys(produtosBrutos)) if (R.CATEGORIAS_FIXAS.includes(s)) problemas.push(`Produto «${s}»: o endereço não pode ser o de uma categoria.`);
 for (const nome of Object.keys(fotos)) if (!manifesto.fotos[nome]) problemas.push(`Fotografia «${nome}»: falta a versão web (correr scripts/imagens.py).`);
@@ -128,6 +129,7 @@ const ctx = {
   dataLonga: (iso) => { const [a, m, d] = iso.split('-').map(Number); return `${d} de ${MESES[m - 1]} de ${a}`; },
   porConfirmar: (o) => `<mark class="por-confirmar">[por confirmar: ${esc(o)}]</mark>`,
 };
+ctx.recorte = (nome) => !!manifesto.fotos[nome]?.alfa;
 ctx.icone = (lado) => { ctx.usadas.add(`icone-${lado}`); return asset(ctx, `img/icone-${manifesto.logo.resumo}-${lado}.png`); };
 ctx.logoUrl = URL_SITE ? `${URL_SITE}/assets/img/logo-${manifesto.logo.resumo}-${manifesto.logo.alturas.at(-1)}.png` : null;
 ctx.imagemPartilha = fotoUrl(ctx, 'tabua-madeira-africana-1', { partilha: true });

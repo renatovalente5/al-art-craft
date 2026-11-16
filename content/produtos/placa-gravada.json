@@ -22,6 +22,7 @@
   ],
   "opcoes": [],
   "fotos": [
+    "placa-gravada-recorte",
     "placa-gravada-1",
     "placa-gravada-2",
     "placa-gravada-3",
@@ -31,7 +32,7 @@
   "video": null,
   "videoOrigem": null,
   "feitaPara": "uima-river-house",
-  "destaque": true,
+  "destaque": false,
   "publicado": true,
   "ordem": 1
 }
