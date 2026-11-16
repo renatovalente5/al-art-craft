@@ -56,10 +56,14 @@ ${jsonld}
 <body class="${p.classe ?? ''}">
 <a class="saltar" href="#conteudo">Saltar para o conteúdo</a>
 <header class="topo">
-  <a class="topo__marca" href="${href(ctx, '/')}" aria-label="AL Art Craft — início">${logo(ctx, 68, 'topo__logo')}</a>
-  <nav class="topo__nav" aria-label="Principal">${navegacao}</nav>
-  <a class="botao botao--suave topo__wa" href="${whatsapp(site, 'Olá Alberto!')}" target="_blank" rel="noopener">${I.wa}<span>WhatsApp</span><span class="sr"> (abre o WhatsApp)</span></a>
-  <button class="topo__menu" type="button" aria-expanded="false" aria-controls="menu"><span class="topo__menu-abrir">${I.menu}</span><span class="topo__menu-fechar">${I.fechar}</span><span class="sr">Menu</span></button>
+  <div class="topo__barra">
+    <nav class="topo__nav" aria-label="Principal">${navegacao}</nav>
+    <button class="topo__menu" type="button" aria-expanded="false" aria-controls="menu"><span class="topo__menu-abrir">${I.menu}</span><span class="topo__menu-fechar">${I.fechar}</span><span class="sr">Menu</span></button>
+    <a class="topo__marca" href="${href(ctx, '/')}" aria-label="AL Art Craft — início">${logo(ctx, 66, 'topo__logo')}</a>
+    <div class="topo__acoes">
+      <a class="topo__icone topo__wa" href="${whatsapp(site, 'Olá Alberto!')}" target="_blank" rel="noopener" aria-label="WhatsApp (abre o WhatsApp)">${I.wa}</a>
+    </div>
+  </div>
 </header>
 <nav class="menu" id="menu" aria-label="Menu" hidden>
   <div class="menu__dentro">

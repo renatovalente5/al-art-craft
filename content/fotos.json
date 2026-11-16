@@ -27,17 +27,9 @@
     "alt": "Bancada de catering",
     "origem": "DJzikbjolzS_08"
   },
-  "bancada-de-catering-recorte": {
-    "alt": "Bancada de catering",
-    "origem": "DKwUXytNLcr_05 (recorte)"
-  },
   "bancada-de-feira-1": {
     "alt": "Bancada de vendas para feiras",
     "origem": "DLMlflHNzAc@20"
-  },
-  "bancada-de-feira-recorte": {
-    "alt": "Bancada de vendas para feiras",
-    "origem": "DLMlflHNzAc@7.6 (recorte)"
   },
   "base-gravada-1": {
     "alt": "Base de madeira Africana gravada",
@@ -55,10 +47,6 @@
     "alt": "Base de madeira Africana gravada",
     "origem": "DZ-0ZHuABxN_05"
   },
-  "base-gravada-recorte": {
-    "alt": "Base de madeira Africana gravada",
-    "origem": "DZ-0ZHuABxN_03 (recorte)"
-  },
   "base-para-francesinha-1": {
     "alt": "Base para francesinha",
     "origem": "DJHqH_0odTh@2.0"
@@ -66,10 +54,6 @@
   "base-para-francesinha-2": {
     "alt": "Base para francesinha",
     "origem": "DTpW6qPDcP_@10"
-  },
-  "base-para-francesinha-recorte": {
-    "alt": "Base para francesinha",
-    "origem": "DJHqH_0odTh@2.7 (recorte)"
   },
   "base-prato-ferro-fundido-1": {
     "alt": "Base para prato de ferro fundido",
@@ -99,10 +83,6 @@
     "alt": "Caixa de madeira com pegas",
     "origem": "C-ELF9xovjE_01"
   },
-  "caixa-com-pegas-recorte": {
-    "alt": "Caixa de madeira com pegas",
-    "origem": "DOYYQdECOoW_07 (recorte)"
-  },
   "caixa-lacada-1": {
     "alt": "Caixa lacada com gravação dourada",
     "origem": "C-GO0RPgOKT_04"
@@ -118,10 +98,6 @@
   "caixa-lacada-4": {
     "alt": "Caixa lacada com gravação dourada",
     "origem": "C-GO0RPgOKT_06"
-  },
-  "caixa-lacada-recorte": {
-    "alt": "Caixa lacada com gravação dourada",
-    "origem": "C-GO0RPgOKT_06 (recorte)"
   },
   "caixa-para-pao-1": {
     "alt": "Caixa para pão",
@@ -143,10 +119,6 @@
     "alt": "Caixa para pão",
     "origem": "DZzC8vyjfK6_01"
   },
-  "caixa-para-pao-recorte": {
-    "alt": "Caixa para pão",
-    "origem": "Dar-YKKgI13_08 (recorte)"
-  },
   "cardapio-de-mesa-1": {
     "alt": "Cardápio de mesa",
     "origem": "C_D3c69CB-y_02"
@@ -162,10 +134,6 @@
   "carrinho-de-catering-1": {
     "alt": "Carrinho de apoio para catering",
     "origem": "DeHt1s-gfaV@15"
-  },
-  "carrinho-de-catering-recorte": {
-    "alt": "Carrinho de apoio para catering",
-    "origem": "DeHt1s-gfaV@4.5 (recorte)"
   },
   "cubo-de-mesa-1": {
     "alt": "Cubo de mesa com número e QR",
@@ -183,10 +151,6 @@
     "alt": "Cubo de mesa com número e QR",
     "origem": "DY1LqpsAMPf_05"
   },
-  "cubo-de-mesa-recorte": {
-    "alt": "Cubo de mesa com número e QR",
-    "origem": "DY1LqpsAMPf_05 (recorte)"
-  },
   "expositor-de-exterior-1": {
     "alt": "Expositor de menu para exterior",
     "origem": "C-E9DNBgGMq_01"
@@ -195,17 +159,9 @@
     "alt": "Frapê de madeira",
     "origem": "Db0eZ4NAneJ@4"
   },
-  "frape-de-madeira-recorte": {
-    "alt": "Frapê de madeira",
-    "origem": "Db0eZ4NAneJ@10.1 (recorte)"
-  },
   "lembranca-porta-velas-1": {
     "alt": "Lembrança porta-velas",
     "origem": "C_pleTSMmmP_02"
-  },
-  "lembranca-porta-velas-recorte": {
-    "alt": "Lembrança porta-velas",
-    "origem": "C_pleTSMmmP_02 (recorte)"
   },
   "letras-de-madeira-1": {
     "alt": "Letras de madeira maciça",
@@ -218,10 +174,6 @@
   "letras-de-madeira-3": {
     "alt": "Letras de madeira maciça",
     "origem": "DZUb189AAvw_05"
-  },
-  "letras-de-madeira-recorte": {
-    "alt": "Letras de madeira maciça",
-    "origem": "DZUb189AAvw_03 (recorte)"
   },
   "letreiro-neon-1": {
     "alt": "Letreiro néon",
@@ -247,10 +199,6 @@
     "alt": "Placa Aberto / Fechado",
     "origem": "DIB4BaztSJV_02"
   },
-  "placa-aberto-fechado-recorte": {
-    "alt": "Placa Aberto / Fechado",
-    "origem": "DIB4BaztSJV_01 (recorte)"
-  },
   "placa-com-postes-1": {
     "alt": "Placa com postes",
     "origem": "DRIJ4A4AJoX_01"
@@ -259,17 +207,9 @@
     "alt": "Placa com postes",
     "origem": "DRcFDY6CPkL@12"
   },
-  "placa-com-postes-recorte": {
-    "alt": "Placa com postes",
-    "origem": "DRIJ4A4AJoX_01 (recorte)"
-  },
   "placa-de-madeira-com-neon-1": {
     "alt": "Placa de madeira com néon",
     "origem": "DPbKV9UiHuI@6"
-  },
-  "placa-de-madeira-com-neon-recorte": {
-    "alt": "Placa de madeira com néon",
-    "origem": "DPbKV9UiHuI@7.3 (recorte)"
   },
   "placa-gravada-1": {
     "alt": "Placa de madeira maciça gravada",
@@ -291,10 +231,6 @@
     "alt": "Placa de madeira maciça gravada",
     "origem": "DXoh9EiiBge_01"
   },
-  "placa-gravada-recorte": {
-    "alt": "Placa de madeira maciça gravada",
-    "origem": "Dd5tCOmAErN_03 (recorte)"
-  },
   "placa-redonda-com-luz-1": {
     "alt": "Placa redonda com luz",
     "origem": "DBG-09IsWmw_06"
@@ -310,10 +246,6 @@
   "placa-redonda-com-luz-4": {
     "alt": "Placa redonda com luz",
     "origem": "DBG-09IsWmw_07"
-  },
-  "placa-redonda-com-luz-recorte": {
-    "alt": "Placa redonda com luz",
-    "origem": "DBG-09IsWmw_08 (recorte)"
   },
   "porta-aliancas-1": {
     "alt": "Porta-alianças",
@@ -331,10 +263,6 @@
     "alt": "Porta-alianças",
     "origem": "C_pleTSMmmP_06"
   },
-  "porta-aliancas-recorte": {
-    "alt": "Porta-alianças",
-    "origem": "C_pleTSMmmP_03 (recorte)"
-  },
   "porta-contas-1": {
     "alt": "Porta-contas",
     "origem": "DUKgHYmiL8L_03"
@@ -350,10 +278,6 @@
   "porta-contas-4": {
     "alt": "Porta-contas",
     "origem": "DUKgHYmiL8L_04"
-  },
-  "porta-contas-recorte": {
-    "alt": "Porta-contas",
-    "origem": "DUKgHYmiL8L_03 (recorte)"
   },
   "porta-espetadas-1": {
     "alt": "Porta-espetadas",
@@ -375,10 +299,6 @@
     "alt": "Porta-espetadas",
     "origem": "DWUqPlGAOb3_07"
   },
-  "porta-espetadas-recorte": {
-    "alt": "Porta-espetadas",
-    "origem": "DWUqPlGAOb3_04 (recorte)"
-  },
   "porta-menus-1": {
     "alt": "Porta-menus A5",
     "origem": "DZzD8zuAKLx_01"
@@ -398,10 +318,6 @@
   "porta-menus-5": {
     "alt": "Porta-menus A5",
     "origem": "DZzD8zuAKLx_09"
-  },
-  "porta-menus-recorte": {
-    "alt": "Porta-menus A5",
-    "origem": "DZzD8zuAKLx_05 (recorte)"
   },
   "prancha-rustica-1": {
     "alt": "Prancha rústica gravada",
@@ -423,17 +339,9 @@
     "alt": "Prancha rústica gravada",
     "origem": "DKT3rOsIBZ2_01"
   },
-  "prancha-rustica-recorte": {
-    "alt": "Prancha rústica gravada",
-    "origem": "DKT3rOsIBZ2_05 (recorte)"
-  },
   "prato-de-acacia-1": {
     "alt": "Prato de Acácia",
     "origem": "DV2t4yOgI1v@6"
-  },
-  "prato-de-acacia-recorte": {
-    "alt": "Prato de Acácia",
-    "origem": "DV2t4yOgI1v@6.2 (recorte)"
   },
   "prato-de-madeira-1": {
     "alt": "Prato de madeira",
@@ -454,10 +362,6 @@
   "prato-de-madeira-5": {
     "alt": "Prato de madeira",
     "origem": "DSQTOTtgD0o_09"
-  },
-  "prato-de-madeira-recorte": {
-    "alt": "Prato de madeira",
-    "origem": "DSQTOTtgD0o_09 (recorte)"
   },
   "processo-3d": {
     "alt": "Projeto em 3D de uma placa, antes de cortar a madeira",
@@ -487,10 +391,6 @@
     "alt": "Reservado de mesa",
     "origem": "DVf7dqXiOTo_02"
   },
-  "reservado-de-mesa-recorte": {
-    "alt": "Reservado de mesa",
-    "origem": "DVf7dqXiOTo_04 (recorte)"
-  },
   "rodela-de-carvalho-1": {
     "alt": "Rodela de carvalho",
     "origem": "DH1isLIguab@6"
@@ -498,10 +398,6 @@
   "suporte-tablet-1": {
     "alt": "Suporte para tablet ou livro",
     "origem": "DUOrbk9Cgc2@5"
-  },
-  "suporte-tablet-recorte": {
-    "alt": "Suporte para tablet ou livro",
-    "origem": "DUOrbk9Cgc2@4.2 (recorte)"
   },
   "tabua-acacia-com-pegas-1": {
     "alt": "Tábua de Acácia com pegas",
@@ -523,10 +419,6 @@
     "alt": "Tábua de Acácia com pegas",
     "origem": "DUjaImkAAY7_09"
   },
-  "tabua-acacia-com-pegas-recorte": {
-    "alt": "Tábua de Acácia com pegas",
-    "origem": "DUjaImkAAY7_09 (recorte)"
-  },
   "tabua-acacia-macica-1": {
     "alt": "Tábua de Acácia maciça",
     "origem": "DO3VV5SkQ8y_02"
@@ -547,10 +439,6 @@
     "alt": "Tábua de Acácia maciça",
     "origem": "DO3VV5SkQ8y_12"
   },
-  "tabua-acacia-macica-recorte": {
-    "alt": "Tábua de Acácia maciça",
-    "origem": "DO6L5LbCC9l_04 (recorte)"
-  },
   "tabua-africana-ferro-fundido-1": {
     "alt": "Tábua de madeira Africana com ferro fundido",
     "origem": "DXM_WiAAI-0@10"
@@ -558,10 +446,6 @@
   "tabua-africana-ferro-fundido-2": {
     "alt": "Tábua de madeira Africana com ferro fundido",
     "origem": "DVnfEU8CC4T@12"
-  },
-  "tabua-africana-ferro-fundido-recorte": {
-    "alt": "Tábua de madeira Africana com ferro fundido",
-    "origem": "DVnfEU8CC4T@12.3 (recorte)"
   },
   "tabua-com-ardosia-1": {
     "alt": "Tábua com ardósia",
@@ -583,10 +467,6 @@
     "alt": "Tábua com ardósia",
     "origem": "C-fv4q4CXiz_03"
   },
-  "tabua-com-ardosia-recorte": {
-    "alt": "Tábua com ardósia",
-    "origem": "C-fv4q4CXiz_01 (recorte)"
-  },
   "tabua-com-pegas-metalicas-1": {
     "alt": "Tábua com pegas metálicas",
     "origem": "DI8VqfqsgZd_01"
@@ -607,10 +487,6 @@
     "alt": "Tábua com pegas metálicas",
     "origem": "DI8VqfqsgZd_08"
   },
-  "tabua-com-pegas-metalicas-recorte": {
-    "alt": "Tábua com pegas metálicas",
-    "origem": "DI8VqfqsgZd_02 (recorte)"
-  },
   "tabua-com-resina-epoxi-2": {
     "alt": "Tábua com canal em resina epóxi",
     "origem": "DEDpJO9A1wr_04"
@@ -622,10 +498,6 @@
   "tabua-com-resina-epoxi-5": {
     "alt": "Tábua com canal em resina epóxi",
     "origem": "DEDpJO9A1wr_03"
-  },
-  "tabua-com-resina-epoxi-recorte": {
-    "alt": "Tábua com canal em resina epóxi",
-    "origem": "DEDpJO9A1wr_03 (recorte)"
   },
   "tabua-de-carvalho-1": {
     "alt": "Tábua de carvalho maciço",
@@ -663,17 +535,9 @@
     "alt": "Tábua de CUMARU vermelho",
     "origem": "DGOrPR2CRgP_03"
   },
-  "tabua-de-cumaru-recorte": {
-    "alt": "Tábua de CUMARU vermelho",
-    "origem": "DGOrPR2CRgP_04 (recorte)"
-  },
   "tabua-de-dois-andares-1": {
     "alt": "Tábua de dois andares",
     "origem": "DShQia1Akal@20"
-  },
-  "tabua-de-dois-andares-recorte": {
-    "alt": "Tábua de dois andares",
-    "origem": "DShQia1Akal@6.3 (recorte)"
   },
   "tabua-de-pinho-com-pega-1": {
     "alt": "Tábua de pinho com pega",
@@ -699,17 +563,9 @@
     "alt": "Tábua de pinho com pega",
     "origem": "DQHB4UxiBch_01"
   },
-  "tabua-de-pinho-com-pega-recorte": {
-    "alt": "Tábua de pinho com pega",
-    "origem": "DUYGJ1HiFJD_06 (recorte)"
-  },
   "tabua-de-pizza-1": {
     "alt": "Tábua de pizza dupla face",
     "origem": "DJOkcm4IWjS@30"
-  },
-  "tabua-de-pizza-recorte": {
-    "alt": "Tábua de pizza dupla face",
-    "origem": "DJOkcm4IWjS@36.1 (recorte)"
   },
   "tabua-ferro-fundido-redonda-1": {
     "alt": "Tábua medieval com chapa redonda",
@@ -731,10 +587,6 @@
     "alt": "Tábua medieval com chapa redonda",
     "origem": "Dacih3QALg5_07"
   },
-  "tabua-ferro-fundido-redonda-recorte": {
-    "alt": "Tábua medieval com chapa redonda",
-    "origem": "Dacih3QALg5_02 (recorte)"
-  },
   "tabua-ferro-fundido-retangular-1": {
     "alt": "Tábua medieval com chapa retangular",
     "origem": "Dacih3QALg5_09"
@@ -755,10 +607,6 @@
     "alt": "Tábua medieval com chapa retangular",
     "origem": "Dacih3QALg5_15"
   },
-  "tabua-ferro-fundido-retangular-recorte": {
-    "alt": "Tábua medieval com chapa retangular",
-    "origem": "Dacih3QALg5_16 (recorte)"
-  },
   "tabua-formato-cutelo-2": {
     "alt": "Tábua em formato de cutelo",
     "origem": "DHIroENNi5K_02"
@@ -770,10 +618,6 @@
   "tabua-formato-cutelo-4": {
     "alt": "Tábua em formato de cutelo",
     "origem": "DHIroENNi5K_09"
-  },
-  "tabua-formato-cutelo-recorte": {
-    "alt": "Tábua em formato de cutelo",
-    "origem": "DHIroENNi5K_03 (recorte)"
   },
   "tabua-madeira-africana-1": {
     "alt": "Tábua de madeira Africana",
@@ -799,10 +643,6 @@
     "alt": "Tábua de madeira Africana",
     "origem": "DK1MrFqNTay_04"
   },
-  "tabua-madeira-africana-recorte": {
-    "alt": "Tábua de madeira Africana",
-    "origem": "DKJ77rAI9b9_06 (recorte)"
-  },
   "tabua-para-hamburguer-1": {
     "alt": "Tábua para hambúrguer",
     "origem": "DWKLEZ-la4l@8"
@@ -810,10 +650,6 @@
   "tabua-para-hamburguer-2": {
     "alt": "Tábua para hambúrguer",
     "origem": "DWqfnl2DtPB@6"
-  },
-  "tabua-para-hamburguer-recorte": {
-    "alt": "Tábua para hambúrguer",
-    "origem": "DWKLEZ-la4l@9.7 (recorte)"
   },
   "tabua-para-tapas-1": {
     "alt": "Tábua comprida para tapas",
@@ -831,17 +667,9 @@
     "alt": "Tábua comprida para tapas",
     "origem": "DKtixUYNowB_07"
   },
-  "tabua-para-tapas-recorte": {
-    "alt": "Tábua comprida para tapas",
-    "origem": "DKtixUYNowB_01 (recorte)"
-  },
   "tabua-rotativa-1": {
     "alt": "Tábua rotativa",
     "origem": "DP7KQsDgLGM@2.8 (topo 66%)"
-  },
-  "tabua-rotativa-recorte": {
-    "alt": "Tábua rotativa",
-    "origem": "DP7KQsDgLGM@11.8 (recorte)"
   },
   "tabua-rustica-1": {
     "alt": "Tábua rústica de formato livre",
@@ -859,17 +687,9 @@
     "alt": "Tábua rústica de formato livre",
     "origem": "DNKwgzttLEF_03"
   },
-  "tabua-rustica-recorte": {
-    "alt": "Tábua rústica de formato livre",
-    "origem": "DN5z3RIiGBz_03 (recorte)"
-  },
   "tapete-de-entrada-1": {
     "alt": "Tapete de entrada com logótipo",
     "origem": "DZVfSb6ig-r@3"
-  },
-  "tapete-de-entrada-recorte": {
-    "alt": "Tapete de entrada com logótipo",
-    "origem": "DZVfSb6ig-r@5.7 (recorte)"
   },
   "trabalho-cafe-estrela-3": {
     "alt": "Tábuas e caixas com o logótipo — Café Estrela",
