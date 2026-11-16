@@ -32,7 +32,7 @@
   "video": null,
   "videoOrigem": null,
   "feitaPara": "papo-furado",
-  "destaque": true,
+  "destaque": false,
   "publicado": true,
   "ordem": 9
 }

@@ -31,7 +31,7 @@
   "video": null,
   "videoOrigem": null,
   "feitaPara": null,
-  "destaque": true,
+  "destaque": false,
   "publicado": true,
   "ordem": 1
 }

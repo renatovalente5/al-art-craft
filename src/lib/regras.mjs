@@ -173,7 +173,12 @@ export function regrasInicio(d, { fotos = null, videos = null } = {}) {
   const c = d?.capa ?? {};
   campoTexto(p, 'capa.titulo', c.titulo, { max: LIMITES.tituloCapa });
   campoTexto(p, 'capa.texto', c.texto, { max: LIMITES.textoCapa });
-  if (videos && !videos.includes(c.video)) p.push({ campo: 'capa.video', msg: 'Escolha o vídeo da capa.' });
+  const vs = c.videos;
+  if (!Array.isArray(vs) || vs.length < 1 || vs.length > 3) p.push({ campo: 'capa.videos', msg: 'A capa tem de 1 a 3 vídeos.' });
+  else {
+    if (new Set(vs).size !== vs.length) p.push({ campo: 'capa.videos', msg: 'Há vídeos repetidos na capa.' });
+    if (videos) vs.forEach((v) => { if (!videos.includes(v)) p.push({ campo: 'capa.videos', msg: `O vídeo «${v}» não existe.` }); });
+  }
   const passos = d?.processo ?? [];
   if (!Array.isArray(passos) || passos.length !== 3) p.push({ campo: 'processo', msg: 'São três passos.' });
   else passos.forEach((s, i) => {

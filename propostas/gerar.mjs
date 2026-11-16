@@ -73,14 +73,14 @@ const TRABALHOS = ['uima-river-house', 'lili-catering', 'lido-grill', 'sal-e-bra
 const NAV = [['Produtos', '#produtos'], ['Trabalhos', '#trabalhos'], ['Sobre', '#sobre'], ['Contactos', '#contactos']];
 const ano = 2026;
 
-function pagina(letra, nome, corpo) {
+function pagina(letra, nome, corpo, css = letra) {
   const html = `<!doctype html>
 <html lang="pt-PT">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Proposta ${letra.toUpperCase()} · ${nome} — AL Art Craft</title>
+<title>Proposta ${nome} — AL Art Craft</title>
 <link rel="stylesheet" href="../assets/fontes/fontes.css">
 <link rel="stylesheet" href="estilo.css">
 </head>
@@ -94,7 +94,7 @@ if (matchMedia('(prefers-reduced-motion: reduce)').matches) document.querySelect
 `;
   fs.mkdirSync(path.join(SAIDA, letra), { recursive: true });
   fs.writeFileSync(path.join(SAIDA, letra, 'index.html'), html);
-  fs.copyFileSync(path.join(AQUI, letra, 'estilo.css'), path.join(SAIDA, letra, 'estilo.css'));
+  fs.copyFileSync(path.join(AQUI, css, 'estilo.css'), path.join(SAIDA, letra, 'estilo.css'));
 }
 
 const cartao = (slug, sizes) => {
@@ -112,33 +112,36 @@ const rodape = (variante) => `
   <div class="rodape__fim"><span>© ${ano} ${esc(site.marca)}</span><span class="rodape__legais"><a href="#">Termos</a><a href="#">Privacidade</a><a href="#">Livro de Reclamações</a></span></div>
 </footer>`;
 
-// ── A · Bancada ────────────────────────────────────────────────────────────────────────────────
-{
+// ── A · Bancada (a escolhida, 16 nov 2026), com duas capas para comparar: três vídeos lado a lado, ou um só ──
+function videoCapa(nome, i) {
+  const f = `${nome}.mp4`;
+  fs.copyFileSync(path.join(RAIZ, 'media', 'videos', f), path.join(SAIDA, 'assets', 'video', f));
+  const m = manifesto.videos[nome];
+  const poster = copiar(`video-${nome}-${m.resumo}-${m.jpg}.jpg`);
+  return `<video class="capa__video" muted loop playsinline${i === 0 ? ' autoplay preload="auto"' : ' preload="none"'} poster="${poster}" data-capa aria-hidden="true"><source src="../assets/video/${f}" type="video/mp4"></video>`;
+}
+function paginaA(letra, nome, nVideos) {
   const c = inicio.capa;
   const corpo = `
 <header class="topo">
-  <a class="topo__marca" href="#" aria-label="AL Art Craft, início">${logo(56)}</a>
+  <a class="topo__marca" href="#" aria-label="AL Art Craft, início">${logo(60)}</a>
   <nav class="topo__nav" aria-label="Principal">${NAV.map(([t, h], i) => `<a href="${h}"${i === 0 ? ' aria-current="page"' : ''}>${t}</a>`).join('')}</nav>
-  <a class="botao botao--wa topo__wa" href="${wa('Olá Alberto!')}">${I.wa}<span>WhatsApp</span></a>
+  <a class="botao botao--suave topo__wa" href="${wa('Olá Alberto!')}">${I.wa}<span>WhatsApp</span></a>
   <button class="topo__menu" aria-label="Menu">${I.menu}</button>
 </header>
 <main>
-  <section class="capa">
+  <section class="capa capa--${nVideos}">
+    <div class="capa__videos">${c.videos.slice(0, nVideos).map(videoCapa).join('')}</div>
     <div class="capa__texto">
-      <p class="capa__local">Fafe · Peças por medida</p>
-      <h1 class="capa__titulo">Peças em madeira com a <em>marca</em> da sua casa</h1>
+      <h1 class="capa__titulo">${esc(c.titulo)}</h1>
       <p class="capa__sub">${esc(c.texto)}</p>
-      <div class="capa__botoes"><a class="botao botao--cheio" href="#produtos">Ver produtos</a><a class="botao botao--wa" href="${wa('Olá Alberto! Gostava de pedir um orçamento.')}">${I.wa}<span>Pedir orçamento</span></a></div>
-    </div>
-    <div class="capa__media">
-      ${video(c.video, { classe: 'capa__video' })}
-      <div class="capa__peca">${foto('tabua-madeira-africana-1', { sizes: '200px' })}<span><strong>Tábua de madeira Africana</strong>${euro(65)}</span></div>
+      <div class="capa__botoes"><a class="botao botao--claro" href="#produtos">Ver produtos</a><a class="botao botao--vidro" href="${wa('Olá Alberto! Gostava de pedir um orçamento.')}">${I.wa}<span>Pedir orçamento</span></a></div>
     </div>
   </section>
 
   <section class="secao" id="produtos">
     <div class="secao__cabeca"><h2>Produtos</h2><a class="mais" href="#">Ver todos ${I.seta}</a></div>
-    <ul class="categorias">${categorias.map((k) => `<li><a href="#">${foto(k.foto, { sizes: '(min-width: 1024px) 300px, 45vw', classe: 'categorias__foto' })}<span class="categorias__nome">${esc(k.nome)}</span><span class="categorias__n">${nCat(k.slug)}</span></a></li>`).join('')}</ul>
+    <ul class="categorias">${categorias.map((k) => `<li><a class="categoria" href="#">${foto(k.foto, { sizes: '(min-width: 1024px) 180px, (min-width: 720px) 25vw, 46vw', classe: 'categoria__foto' })}<span class="categoria__nome">${esc(k.nome)}</span><span class="categoria__n">${nCat(k.slug)} produtos</span></a></li>`).join('')}</ul>
   </section>
 
   <section class="secao">
@@ -148,7 +151,7 @@ const rodape = (variante) => `
 
   <section class="secao processo" id="sobre">
     <div class="secao__cabeca"><h2>Como trabalho</h2></div>
-    <ol class="processo__lista">${inicio.processo.map((p, i) => `<li class="processo__passo"><div class="processo__media">${p.video ? video(p.video, { capa: false }) : foto(p.foto, { sizes: '400px' })}</div><span class="processo__n">${i + 1}</span><h3>${esc(p.titulo)}</h3><p>${esc(p.texto)}</p></li>`).join('')}</ol>
+    <ol class="processo__lista">${inicio.processo.map((p, i) => `<li class="processo__passo">${foto(p.foto, { sizes: '(min-width: 720px) 400px, 92vw', classe: 'processo__foto' })}<span class="processo__n">${i + 1}</span><h3>${esc(p.titulo)}</h3><p>${esc(p.texto)}</p></li>`).join('')}</ol>
   </section>
 
   <section class="secao" id="trabalhos">
@@ -159,122 +162,24 @@ const rodape = (variante) => `
   <section class="convite">
     <h2>${esc(inicio.convite.titulo)}</h2>
     <p>${esc(inicio.convite.texto)}</p>
-    <a class="botao botao--wa botao--grande" href="${wa('Olá Alberto! Tenho uma ideia:')}">${I.wa}<span>Falar com o Alberto</span></a>
+    <a class="botao botao--escuro botao--grande" href="${wa('Olá Alberto! Tenho uma ideia:')}">${I.wa}<span>Falar com o Alberto</span></a>
   </section>
 </main>
-${rodape('a')}`;
-  pagina('a', 'Bancada', corpo);
+${rodape('a')}
+<script>
+(() => {
+  const reduzir = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const ligar = () => document.querySelectorAll('video[data-capa]').forEach((v) => {
+    if (reduzir) { v.removeAttribute('autoplay'); v.pause(); return; }
+    if (v.offsetWidth > 0 && v.paused) { v.preload = 'auto'; v.play().catch(() => {}); }
+  });
+  ligar(); addEventListener('resize', ligar);
+})();
+</script>`;
+  pagina(letra, nome, corpo, 'a');
 }
+paginaA('a', 'Bancada · três vídeos', 3);
+paginaA('a1', 'Bancada · um vídeo', 1);
 
-// ── B · Nogueira ───────────────────────────────────────────────────────────────────────────────
-{
-  const c = inicio.capa;
-  const corpo = `
-<header class="topo">
-  <button class="topo__menu" aria-label="Menu">${I.menu}</button>
-  <a class="topo__marca" href="#" aria-label="AL Art Craft, início">${logo(60)}</a>
-  <nav class="topo__nav" aria-label="Principal">${NAV.map(([t, h], i) => `<a href="${h}"${i === 0 ? ' aria-current="page"' : ''}>${t}</a>`).join('')}</nav>
-  <a class="topo__wa" href="${wa('Olá Alberto!')}" aria-label="WhatsApp">${I.wa}</a>
-</header>
-<main>
-  <section class="capa">
-    <div class="capa__media">${video(c.video, { classe: 'capa__video' })}</div>
-    <div class="capa__texto">
-      <h1 class="capa__titulo">${esc(c.titulo)}</h1>
-      <p class="capa__sub">${esc(c.texto)}</p>
-      <div class="capa__botoes"><a class="botao botao--claro" href="#produtos">Ver produtos</a><a class="botao botao--contorno" href="${wa('Olá Alberto! Gostava de pedir um orçamento.')}">${I.wa}<span>Pedir orçamento</span></a></div>
-    </div>
-  </section>
-
-  <section class="secao" id="produtos">
-    <div class="secao__cabeca"><h2>Escolha por categoria</h2></div>
-    <ul class="faixa">${categorias.map((k) => `<li><a href="#">${foto(k.foto, { sizes: '(min-width: 1024px) 280px, 62vw', classe: 'faixa__foto' })}<span class="faixa__nome">${esc(k.nome)}</span></a></li>`).join('')}</ul>
-  </section>
-
-  <section class="secao">
-    <div class="secao__cabeca"><h2>Os mais pedidos</h2><a class="mais" href="#">Todos os produtos ${I.seta}</a></div>
-    <ul class="grelha">${DESTAQUES.map((s) => cartao(s, '(min-width: 1024px) 300px, 45vw')).join('')}</ul>
-  </section>
-
-  <section class="processo" id="sobre">
-    <div class="processo__dentro">
-      <h2>Do desenho à mesa</h2>
-      <ol class="processo__lista">${inicio.processo.map((p, i) => `<li><div class="processo__media">${p.video ? video(p.video, { capa: false }) : foto(p.foto, { sizes: '400px' })}</div><span class="processo__n">0${i + 1}</span><h3>${esc(p.titulo)}</h3><p>${esc(p.texto)}</p></li>`).join('')}</ol>
-    </div>
-  </section>
-
-  <section class="secao" id="trabalhos">
-    <div class="secao__cabeca"><h2>Trabalhos</h2><a class="mais" href="#">Ver o portefólio ${I.seta}</a></div>
-    <div class="projetos">${TRABALHOS.slice(0, 3).map((s, i) => { const t = trabalhos[s]; return `<article class="projeto${i % 2 ? ' projeto--inv' : ''}"><a href="#" class="projeto__fotos">${foto(t.fotos[0], { sizes: '(min-width: 1024px) 640px, 92vw', classe: 'projeto__f1' })}${foto(t.fotos[1], { sizes: '(min-width: 1024px) 320px, 45vw', classe: 'projeto__f2' })}</a><div class="projeto__texto"><p class="projeto__cliente">${esc(t.cliente)}${t.local ? ` · ${esc(t.local)}` : ''}</p><h3>${esc(t.titulo)}</h3><a class="mais" href="#">Ver trabalho ${I.seta}</a></div></article>`; }).join('')}</div>
-  </section>
-
-  <section class="convite">
-    <h2>${esc(inicio.convite.titulo)}</h2>
-    <p>${esc(inicio.convite.texto)}</p>
-    <a class="botao botao--escuro" href="${wa('Olá Alberto! Tenho uma ideia:')}">${I.wa}<span>Falar com o Alberto</span></a>
-  </section>
-</main>
-${rodape('b')}`;
-  pagina('b', 'Nogueira', corpo);
-}
-
-// ── C · Atelier ────────────────────────────────────────────────────────────────────────────────
-{
-  const c = inicio.capa;
-  const clientes = ['Lido Grill', 'Uíma River House', 'Sal & Brasa', 'Lili Catering', 'Mezze', 'Bandita', 'O Retiro', 'Castelo', 'Dom Barril', 'Café Estrela'];
-  const corpo = `
-<header class="topo">
-  <a class="topo__marca" href="#" aria-label="AL Art Craft, início">${logo(58)}</a>
-  <nav class="topo__nav" aria-label="Principal">${NAV.map(([t, h], i) => `<a href="${h}"${i === 0 ? ' aria-current="page"' : ''}>${t}</a>`).join('')}</nav>
-  <a class="topo__wa" href="${wa('Olá Alberto!')}">${I.wa}<span>Falar no WhatsApp</span></a>
-  <button class="topo__menu" aria-label="Menu">${I.menu}</button>
-</header>
-<main>
-  <section class="capa">
-    <p class="capa__local">Art Craft · Fafe</p>
-    <h1 class="capa__titulo">Madeira trabalhada à medida da sua casa</h1>
-    <p class="capa__sub">${esc(c.texto)}</p>
-    <div class="capa__botoes"><a class="botao botao--cheio" href="#produtos">Ver produtos</a><a class="botao botao--linha" href="${wa('Olá Alberto! Gostava de pedir um orçamento.')}">${I.wa}<span>Pedir orçamento</span></a></div>
-    <div class="mosaico">
-      <div class="mosaico__a">${video(c.video, { classe: 'mosaico__video' })}</div>
-      ${foto('tabua-ferro-fundido-redonda-1', { sizes: '(min-width: 1024px) 360px, 45vw', classe: 'mosaico__b' })}
-      ${foto('placa-gravada-1', { sizes: '(min-width: 1024px) 360px, 45vw', classe: 'mosaico__c' })}
-      ${foto('porta-espetadas-1', { sizes: '(min-width: 1024px) 300px, 45vw', classe: 'mosaico__d' })}
-    </div>
-  </section>
-
-  <section class="clientes" aria-label="Alguns clientes"><p>${[...clientes, ...clientes].map((n, i) => `<span${i >= clientes.length ? ' aria-hidden="true"' : ''}>${esc(n)}</span>`).join('<i aria-hidden="true">·</i>')}<i aria-hidden="true">·</i></p></section>
-
-  <section class="secao" id="produtos">
-    <div class="secao__cabeca"><h2>Produtos</h2><p>Sete famílias de peças, todas por medida e com o seu logótipo.</p></div>
-    <ol class="lista">${categorias.map((k, i) => `<li><a href="#">${foto(k.foto, { sizes: '120px', classe: 'lista__foto' })}<span class="lista__n">0${i + 1}</span><span class="lista__nome">${esc(k.nome)}</span><span class="lista__frase">${esc(k.frase)}</span><span class="lista__conta">${nCat(k.slug)} produtos</span><span class="lista__seta">${I.seta}</span></a></li>`).join('')}</ol>
-  </section>
-
-  <section class="secao">
-    <div class="secao__cabeca"><h2>Os mais pedidos</h2></div>
-    <ul class="carrossel">${DESTAQUES.map((s) => cartao(s, '(min-width: 1024px) 300px, 70vw')).join('')}</ul>
-  </section>
-
-  <section class="secao processo" id="sobre">
-    <div class="secao__cabeca"><h2>Como trabalho</h2></div>
-    <ol class="processo__lista">${inicio.processo.map((p, i) => `<li><span class="processo__n">0${i + 1}</span><div class="processo__media">${p.video ? video(p.video, { capa: false }) : foto(p.foto, { sizes: '400px' })}</div><h3>${esc(p.titulo)}</h3><p>${esc(p.texto)}</p></li>`).join('')}</ol>
-  </section>
-
-  <section class="secao" id="trabalhos">
-    <div class="secao__cabeca"><h2>Trabalhos</h2><a class="mais" href="#">Ver todos ${I.seta}</a></div>
-    <ul class="parede">${TRABALHOS.map((s) => { const t = trabalhos[s]; return `<li><a href="#">${foto(t.fotos[0], { sizes: '(min-width: 1024px) 420px, 46vw', classe: 'parede__foto' })}<span class="parede__texto"><span class="parede__cliente">${esc(t.cliente)}</span><span class="parede__titulo">${esc(t.titulo)}</span></span></a></li>`; }).join('')}</ul>
-  </section>
-
-  <section class="convite">
-    <p class="capa__local">Por medida</p>
-    <h2>${esc(inicio.convite.titulo)}</h2>
-    <p>${esc(inicio.convite.texto)}</p>
-    <a class="botao botao--cheio" href="${wa('Olá Alberto! Tenho uma ideia:')}">${I.wa}<span>Falar com o Alberto</span></a>
-  </section>
-</main>
-${rodape('c')}`;
-  pagina('c', 'Atelier', corpo);
-}
-
-fs.writeFileSync(path.join(SAIDA, 'index.html'), `<!doctype html><meta charset="utf-8"><title>Propostas — AL Art Craft</title><ul><li><a href="a/">A · Bancada</a><li><a href="b/">B · Nogueira</a><li><a href="c/">C · Atelier</a></ul>`);
+fs.writeFileSync(path.join(SAIDA, 'index.html'), `<!doctype html><meta charset="utf-8"><title>Propostas — AL Art Craft</title><ul><li><a href="a/">A · três vídeos</a><li><a href="a1/">A · um vídeo</a></ul>`);
 console.log('propostas em', SAIDA, '·', copiados.size, 'imagens');
