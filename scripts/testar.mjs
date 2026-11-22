@@ -182,6 +182,8 @@ for (const [s, d] of publicados) {
 }
 teste('contactos: telefone com a nota da chamada', () => sim(/917 443 823 <span class="chamada">\(Chamada para a rede móvel nacional\)<\/span>/.test(html('contactos/index.html')), 'nota'));
 teste('termos: TRIAVE e livre resolução', () => { const h = html('termos-e-condicoes/index.html'); sim(h.includes('TRIAVE'), 'TRIAVE'); sim(h.includes('17.º'), 'art. 17.º'); });
+// (22 nov 2026, o Renato) a desistência diz o prazo e onde estão as condições, sem empurrar o cliente para desistir
+teste('desistência sem «sem dar justificação», «basta dizer-me» nem «como desistir»', () => { for (const p of ['termos-e-condicoes', 'desistir', 'perguntas-frequentes']) sim(!/(?<!in)justifica|motivo|\bbasta\b|vê como|veja como|como desistir/i.test(html(`${p}/index.html`)), p); });
 teste('litígios: o centro de Fafe', () => sim(html('resolucao-de-litigios/index.html').includes('TRIAVE'), 'TRIAVE'));
 teste('garantia: o aviso oficial', () => sim(html('garantia/index.html').includes('aviso-garantia-legal-pt.svg'), 'aviso'));
 teste('robots deixa ler o noindex', () => sim(fs.readFileSync(path.join(SITE, 'robots.txt'), 'utf8').includes('Allow: /'), 'robots'));

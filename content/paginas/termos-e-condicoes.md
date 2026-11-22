@@ -49,7 +49,7 @@ Gravo o logótipo, o nome ou a frase exatamente como me indicar e mostro-os no r
 
 **As peças personalizadas ou feitas por medida não têm direito de livre resolução** (Decreto-Lei n.º 24/2014, artigo 17.º, n.º 1, alínea c)): são as que levam o seu logótipo, um nome ou uma frase, ou que são feitas às medidas que me pediu.
 
-As peças **sem personalização e nas medidas da ficha** podem ser devolvidas: tem 14 dias a contar do dia em que as recebe para desistir da compra, sem dar justificação. Basta dizer-me que desiste: pelo WhatsApp, por email ou com o formulário da página [Desistir de uma compra](/desistir/).
+As peças **sem personalização e nas medidas da ficha** podem ser devolvidas: tem 14 dias a contar do dia em que as recebe para desistir da compra. Para desistir, diga-me pelo WhatsApp, por email ou com o formulário da página [Desistir de uma compra](/desistir/).
 
 Devolvo tudo o que pagou por essas peças, incluindo os portes de envio (até ao valor do envio mais barato), em 14 dias a contar da sua comunicação e pelo mesmo meio de pagamento. Posso esperar pelas peças, ou pela prova de que as enviou, antes de reembolsar. Tem 14 dias a contar da comunicação para as devolver, sem uso além do necessário para as ver. Os custos da devolução ficam a seu cargo.
 
